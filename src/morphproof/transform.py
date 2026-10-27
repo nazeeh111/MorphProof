@@ -289,6 +289,44 @@ def generate(reference: Path, contract: dict, *, source: str | None = None) -> s
     return code + "    Ok(())\n}\n"
 
 
+def _native_library(destination: Path, output: str) -> Path:
+    """Select the root crate's reported cdylib inside this build's target tree."""
+    suffix = ".dylib" if sys.platform == "darwin" else ".dll" if sys.platform == "win32" else ".so"
+    filename = ("" if sys.platform == "win32" else "lib") + "_morphproof_native" + suffix
+    target_directory = (destination / "target").resolve()
+    libraries: set[Path] = set()
+    for line in output.splitlines():
+        try:
+            message = json.loads(line)
+        except json.JSONDecodeError:
+            continue  # Cargo may also emit ordinary diagnostic lines.
+        if not isinstance(message, dict) or message.get("reason") != "compiler-artifact":
+            continue
+        target = message.get("target")
+        if (not isinstance(target, dict) or target.get("name") != "_morphproof_native"
+                or not isinstance(target.get("crate_types"), list) or "cdylib" not in target["crate_types"]
+                or message.get("manifest_path") != str(destination / "Cargo.toml")):
+            continue
+        paths = message.get("filenames")
+        if not isinstance(paths, list):
+            continue
+        for value in paths:
+            if not isinstance(value, str):
+                continue
+            path = Path(value)
+            if path.name != filename:
+                continue
+            try:
+                path = (path if path.is_absolute() else destination / path).resolve()
+            except (OSError, ValueError):
+                continue
+            if path.is_relative_to(target_directory) and path.is_file():
+                libraries.add(path)
+    if len(libraries) != 1:
+        raise RuntimeError(f"cargo did not report one owned native library; see {destination / 'build.log'}")
+    return libraries.pop()
+
+
 def build_candidate(destination: Path, timeout: float = 300.0) -> dict:
     """Build an already generated crate and expose it as candidate.py."""
     destination = Path(destination).resolve()
@@ -302,7 +340,7 @@ def build_candidate(destination: Path, timeout: float = 300.0) -> dict:
     env = dict(os.environ)
     env["PYO3_PYTHON"] = sys.executable
     try:
-        result = subprocess.run([cargo, "build", "--release", "--manifest-path", str(destination / "Cargo.toml"), "--target-dir", str(destination / "target")], cwd=destination, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
+        result = subprocess.run([cargo, "build", "--release", "--manifest-path", str(destination / "Cargo.toml"), "--target-dir", str(destination / "target"), "--message-format=json-render-diagnostics"], cwd=destination, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
     except subprocess.TimeoutExpired as exc:
         captured = exc.stdout or b""
         (destination / "build.log").write_text(captured.decode(errors="replace") if isinstance(captured, bytes) else captured, encoding="utf-8")
@@ -313,10 +351,7 @@ def build_candidate(destination: Path, timeout: float = 300.0) -> dict:
     if any(_digest((destination / name).read_bytes()) != digest for name, digest in build_inputs.items()):
         raise RuntimeError("candidate source or build configuration changed during compilation; rebuild from stable inputs")
     native_name = "_morphproof_native" + (sysconfig.get_config_var("EXT_SUFFIX") or ".so")
-    suffix = ".dylib" if sys.platform == "darwin" else ".dll" if sys.platform == "win32" else ".so"
-    library = destination / "target" / "release" / (("" if sys.platform == "win32" else "lib") + "_morphproof_native" + suffix)
-    if not library.is_file():
-        raise RuntimeError(f"cargo completed without the expected native library: {library}")
+    library = _native_library(destination, result.stdout)
     native = destination / native_name
     shutil.copy2(library, native)
     result = {"candidate": str(destination / "candidate.py"), "native": str(native), "build_seconds": time.perf_counter() - start, "native_sha256": _digest(native.read_bytes()), "rust_sha256": _digest((destination / "src" / "lib.rs").read_bytes()), "built": True}
