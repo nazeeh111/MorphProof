@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.png binary
+*.mp4 binary
+# Exact upstream bytes and historical evidence must survive every platform checkout.
+experiments/upstream/** -text
+experiments/selector-v1.py -text
+examples/demo/failed/** -text
+examples/demo/repaired/** -text
