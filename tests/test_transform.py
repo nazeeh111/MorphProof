@@ -1,10 +1,14 @@
 import importlib.util
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
-from morphproof.transform import UnsupportedSource, generate, transform
+from morphproof.transform import UnsupportedSource, build_candidate, generate, transform
 
 
 CONTRACT = {"schema": 1, "functions": [{"name": "energy", "parameter": "values", "input": "list[float]", "output": "float"}]}
@@ -36,6 +40,30 @@ class TransformTests(unittest.TestCase):
         self.assertFalse(manifest["built"])
         self.assertEqual(len(manifest["reference_sha256"]), 64)
         self.assertEqual(json.loads((destination / "manifest.json").read_text())["schema"], 1)
+
+    def test_build_does_not_follow_ambient_cargo_target_directory(self):
+        destination = self.root / "candidate"
+        transform(self.reference, destination, CONTRACT, build=False)
+        external = self.root / "shared-target"
+
+        def compile_fixture(command, **kwargs):
+            target = Path(command[command.index("--target-dir") + 1]) if "--target-dir" in command else external
+            suffix = ".dylib" if sys.platform == "darwin" else ".dll" if sys.platform == "win32" else ".so"
+            library = target / "release" / (("" if sys.platform == "win32" else "lib") + "_morphproof_native" + suffix)
+            library.parent.mkdir(parents=True)
+            library.write_bytes(b"test compiled artifact")
+            (destination / "Cargo.lock").write_text("# fixture lock\n")
+            return subprocess.CompletedProcess(command, 0, "fixture compilation succeeded")
+
+        with patch.dict(os.environ, {"CARGO_TARGET_DIR": str(external)}), \
+                patch("morphproof.transform.shutil.which", return_value="fixture-cargo"), \
+                patch("morphproof.transform.subprocess.run", side_effect=compile_fixture), \
+                patch("morphproof.transform.platform.platform", return_value="fixture platform"), \
+                patch("morphproof.transform.subprocess.check_output", return_value="fixture toolchain"):
+            result = build_candidate(destination)
+        self.assertTrue(result["built"])
+        self.assertEqual(Path(result["native"]).read_bytes(), b"test compiled artifact")
+        self.assertFalse(external.exists())
 
     def test_rejects_before_writing_partial_artifact(self):
         self.reference.write_text('def energy(values):\n    return sum(values)\n')

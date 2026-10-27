@@ -302,7 +302,7 @@ def build_candidate(destination: Path, timeout: float = 300.0) -> dict:
     env = dict(os.environ)
     env["PYO3_PYTHON"] = sys.executable
     try:
-        result = subprocess.run([cargo, "build", "--release", "--manifest-path", str(destination / "Cargo.toml")], cwd=destination, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
+        result = subprocess.run([cargo, "build", "--release", "--manifest-path", str(destination / "Cargo.toml"), "--target-dir", str(destination / "target")], cwd=destination, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
     except subprocess.TimeoutExpired as exc:
         captured = exc.stdout or b""
         (destination / "build.log").write_text(captured.decode(errors="replace") if isinstance(captured, bytes) else captured, encoding="utf-8")
