@@ -25,7 +25,6 @@ Research reviewed on 2026-10-26. This document separates source-reported capabil
 | [PyO3](https://github.com/PyO3/pyo3) | Rust bindings for Python and native extension interfaces | Prefer mature bindings where dependencies are feasible; document conversions, Python version support, exceptions, and integer/float behavior. |
 | [Maturin](https://github.com/PyO3/maturin) | Builds Rust-backed Python packages | Prefer a reproducible wheel build route when using PyO3. A successful Rust compile alone is insufficient: install the wheel into a fresh Python environment and call the public API. |
 | [Tree-sitter](https://github.com/tree-sitter/tree-sitter) | Incremental parsing across languages | Useful for future cross-language inspection. Python's built-in `ast` is a smaller dependency for an initial Python-only discovery pass. Parsing is not semantic verification. |
-| [PaperVizAgent](https://github.com/google-research/papervizagent) | Research-oriented visual generation workflow | Investigated, not required at runtime. Its quickstart configures model API keys or cloud settings. Repository-native diagrams avoid requiring a separately billed model service for this delivery. |
 
 No dependency should be adopted solely because it appears in this table. Actual use, versions and licenses belong in the dependency and attribution records.
 

@@ -14,6 +14,6 @@ python experiments/make_video.py --assets docs/media/launch-v2 --output docs/med
 
 FFmpeg and ffprobe must be on `PATH`. The script accepts `--font` for a local TrueType font, refuses an existing output path, stages rendering separately, validates dimensions/duration/no audio, and fully decodes the result before publishing the local file.
 
-To capture fresh Studio states, serve the real repaired run, install the free Playwright development package, and run `experiments/record_demo.cjs` with a new capture directory. The original captures were made through Codex CUA Chrome controls. Keep the disclosed defect and measurement qualifiers visible in derivative edits.
+To capture fresh Studio states, serve the real repaired run, install the free Playwright development package, and run `experiments/record_demo.cjs` with a new capture directory. Keep the disclosed defect and measurement qualifiers visible in derivative edits.
 
 The selected master is `morphproof-demo-v2.mp4`. Use v2 for release; earlier edits are kept outside the public deliverable.

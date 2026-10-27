@@ -105,8 +105,8 @@ flowchart LR
 The [retained run](examples/demo/README.md) transforms three numerical reductions.
 A **disclosed seeded off-by-one defect** skips the first item of `sum_squares`.
 The verifier finds a mismatch and reduces a finite example to `[1.0]`.
-An actual invocation of the installed Codex CLI removes `.skip(1)`. MORPHPROOF then
-rebuilds independently, replays the failures, and passes **768 fresh positional
+The coding agent removes `.skip(1)` in the
+[recorded repair](examples/demo/agent-repair.md). MORPHPROOF then rebuilds independently, replays the failures, and passes **768 fresh positional
 comparisons plus 9 keyword API checks** with a different seed.
 
 The final `sum_squares` Python API is **1.96× faster at 100,000 items** in this local
