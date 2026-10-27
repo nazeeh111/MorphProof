@@ -1,0 +1,7 @@
+# Retained study environment: CPython 3.14.7, macOS ARM64.
+hypothesis==6.170.12
+matplotlib==3.11.2
+pytest==9.1.1
+maturin==1.15.0
+build==1.6.1
+setuptools==84.2.1

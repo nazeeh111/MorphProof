@@ -1,0 +1,534 @@
+{
+  "schema": 1,
+  "status": "incompatible",
+  "functions": [
+    {
+      "name": "sum_squares",
+      "status": "incompatible",
+      "tested": 128,
+      "failures": 50,
+      "counterexamples": [
+        {
+          "function": "sum_squares",
+          "case_index": 2,
+          "family": "nonfinite",
+          "input": [
+            {
+              "$float": "+inf"
+            }
+          ],
+          "reference": {
+            "kind": "return",
+            "type": "float",
+            "value": {
+              "$float": "+inf"
+            }
+          },
+          "candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 0.0
+          },
+          "minimized_input": [
+            {
+              "$float": "+inf"
+            }
+          ],
+          "minimization_calls": 1,
+          "minimized_reference": {
+            "kind": "return",
+            "type": "float",
+            "value": {
+              "$float": "+inf"
+            }
+          },
+          "minimized_candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 0.0
+          }
+        },
+        {
+          "function": "sum_squares",
+          "case_index": 4,
+          "family": "length",
+          "input": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "reference": {
+            "kind": "return",
+            "type": "float",
+            "value": 3.0
+          },
+          "candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 2.0
+          },
+          "minimized_input": [
+            1.0
+          ],
+          "minimization_calls": 4,
+          "minimized_reference": {
+            "kind": "return",
+            "type": "float",
+            "value": 1.0
+          },
+          "minimized_candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 0.0
+          }
+        },
+        {
+          "function": "sum_squares",
+          "case_index": 9,
+          "family": "singleton",
+          "input": [
+            1.0
+          ],
+          "reference": {
+            "kind": "return",
+            "type": "float",
+            "value": 1.0
+          },
+          "candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 0.0
+          },
+          "minimized_input": [
+            1.0
+          ],
+          "minimization_calls": 3,
+          "minimized_reference": {
+            "kind": "return",
+            "type": "float",
+            "value": 1.0
+          },
+          "minimized_candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 0.0
+          }
+        },
+        {
+          "function": "sum_squares",
+          "case_index": 10,
+          "family": "nan",
+          "input": [
+            {
+              "$float": "nan"
+            }
+          ],
+          "reference": {
+            "kind": "return",
+            "type": "float",
+            "value": {
+              "$float": "nan"
+            }
+          },
+          "candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 0.0
+          },
+          "minimized_input": [
+            {
+              "$float": "nan"
+            }
+          ],
+          "minimization_calls": 1,
+          "minimized_reference": {
+            "kind": "return",
+            "type": "float",
+            "value": {
+              "$float": "nan"
+            }
+          },
+          "minimized_candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 0.0
+          }
+        },
+        {
+          "function": "sum_squares",
+          "family": "keyword-api",
+          "keyword": "values",
+          "input": [
+            1.0,
+            -1.0
+          ],
+          "minimized_input": [
+            1.0,
+            -1.0
+          ],
+          "reference": {
+            "kind": "return",
+            "type": "float",
+            "value": 2.0
+          },
+          "candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 1.0
+          },
+          "minimized_reference": {
+            "kind": "return",
+            "type": "float",
+            "value": 2.0
+          },
+          "minimized_candidate": {
+            "kind": "return",
+            "type": "float",
+            "value": 1.0
+          },
+          "minimization_calls": 0
+        }
+      ],
+      "shrink_executions": 9,
+      "errors": [],
+      "api_tested": 3,
+      "api_failures": 1,
+      "selection": {
+        "feedback": "reference-only",
+        "families": {
+          "cancellation": 20,
+          "constant": 2,
+          "empty": 1,
+          "infinity": 3,
+          "length": 5,
+          "nan": 3,
+          "nonfinite": 8,
+          "ordinary": 19,
+          "overflow": 1,
+          "repeated": 13,
+          "scale": 16,
+          "sign": 11,
+          "singleton": 2,
+          "threshold": 12,
+          "underflow": 1,
+          "zero": 11
+        },
+        "reference_lines": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "reference_arcs": [
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            11,
+            10
+          ]
+        ],
+        "input_features": [
+          "+inf",
+          "+zero",
+          "-inf",
+          "-zero",
+          "cancellation",
+          "constant:0.0",
+          "large",
+          "len:0",
+          "len:1",
+          "len:2",
+          "len:long",
+          "len:short",
+          "mixed-sign",
+          "nan",
+          "negative",
+          "ordinary",
+          "positive",
+          "repeated",
+          "tiny"
+        ],
+        "structural_analysis": {
+          "constants": [
+            0.0
+          ],
+          "hazards": [
+            "branch",
+            "division",
+            "index",
+            "reduction"
+          ]
+        }
+      }
+    },
+    {
+      "name": "mean",
+      "status": "compatible",
+      "tested": 128,
+      "failures": 0,
+      "counterexamples": [],
+      "shrink_executions": 0,
+      "errors": [],
+      "api_tested": 3,
+      "api_failures": 0,
+      "selection": {
+        "feedback": "reference-only",
+        "families": {
+          "cancellation": 15,
+          "constant": 2,
+          "empty": 1,
+          "infinity": 3,
+          "length": 6,
+          "nan": 3,
+          "nonfinite": 9,
+          "ordinary": 15,
+          "overflow": 1,
+          "repeated": 14,
+          "scale": 11,
+          "sign": 9,
+          "singleton": 2,
+          "threshold": 18,
+          "underflow": 1,
+          "zero": 18
+        },
+        "reference_lines": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "reference_arcs": [
+          [
+            16,
+            17
+          ],
+          [
+            16,
+            18
+          ],
+          [
+            18,
+            19
+          ],
+          [
+            19,
+            20
+          ],
+          [
+            19,
+            21
+          ],
+          [
+            20,
+            19
+          ]
+        ],
+        "input_features": [
+          "+inf",
+          "+zero",
+          "-inf",
+          "-zero",
+          "cancellation",
+          "constant:0.0",
+          "large",
+          "len:0",
+          "len:1",
+          "len:2",
+          "len:long",
+          "len:short",
+          "mixed-sign",
+          "nan",
+          "negative",
+          "ordinary",
+          "positive",
+          "repeated",
+          "tiny"
+        ],
+        "structural_analysis": {
+          "constants": [
+            0.0
+          ],
+          "hazards": [
+            "branch",
+            "division",
+            "index",
+            "reduction"
+          ]
+        }
+      }
+    },
+    {
+      "name": "positive_energy",
+      "status": "compatible",
+      "tested": 128,
+      "failures": 0,
+      "counterexamples": [],
+      "shrink_executions": 0,
+      "errors": [],
+      "api_tested": 3,
+      "api_failures": 0,
+      "selection": {
+        "feedback": "reference-only",
+        "families": {
+          "cancellation": 14,
+          "constant": 2,
+          "empty": 1,
+          "infinity": 3,
+          "length": 6,
+          "nan": 3,
+          "nonfinite": 9,
+          "ordinary": 16,
+          "overflow": 1,
+          "repeated": 5,
+          "scale": 19,
+          "sign": 17,
+          "singleton": 2,
+          "threshold": 15,
+          "underflow": 1,
+          "zero": 14
+        },
+        "reference_lines": [
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "reference_arcs": [
+          [
+            25,
+            26
+          ],
+          [
+            26,
+            27
+          ],
+          [
+            26,
+            29
+          ],
+          [
+            27,
+            26
+          ],
+          [
+            27,
+            28
+          ],
+          [
+            28,
+            26
+          ]
+        ],
+        "input_features": [
+          "+inf",
+          "+zero",
+          "-inf",
+          "-zero",
+          "cancellation",
+          "constant:0.0",
+          "large",
+          "len:0",
+          "len:1",
+          "len:2",
+          "len:long",
+          "len:short",
+          "mixed-sign",
+          "nan",
+          "negative",
+          "ordinary",
+          "positive",
+          "repeated",
+          "tiny"
+        ],
+        "structural_analysis": {
+          "constants": [
+            0.0
+          ],
+          "hazards": [
+            "branch",
+            "division",
+            "index",
+            "reduction"
+          ]
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "reference": "/Users/nazeeh/Documents/Codex/2026-10-26/goal-build-and-publicly-release-morphproof/outputs/MorphProof/examples/kernels.py",
+    "candidate": "/Users/nazeeh/Documents/Codex/2026-10-26/goal-build-and-publicly-release-morphproof/work/native-final/candidate.py",
+    "reference_sha256": "b9bbe755490c2723cd95c160d88a6622931de7f12eb00ac1f746229984c99e65",
+    "candidate_sha256": "6f40e06a074d8fca43115d42089c71795b6ed7412cd46d03d5334fc080b488b7",
+    "contract_sha256": "2a24ce7de33adfee23d389f50de72beabda23a61838c9c2aee0bb83a71c176b5",
+    "seed": 23,
+    "strategy": "adaptive",
+    "budget": 128,
+    "budget_unit": "differential challenge pairs per function",
+    "python": "3.14.7",
+    "timeout_seconds": 3.0,
+    "artifact_sha256": {
+      "morphproof-build.json": "0b7e04d7d1604c0e2938718cc6884d0c349c1333b9b09c4d4f63c4d51b9b8019",
+      "_morphproof_native.cpython-314-darwin.so": "7427593cc82f1df7417e004a3ec95d583ca42b841ae5e430e67adff085f79333",
+      "src/lib.rs": "9b4d02c6344d866eab8f940080c20c7705b6c13979e858654f45dcd8d01c8e4e",
+      "Cargo.toml": "402d1e685b0b29910de0b2e796f6328d302db64b4b0c548b2ff19bdc2a1a96ff",
+      "Cargo.lock": "3b3fd502cf971a5e217f406efddb58a5667f0bfbd97de6dac71e955f7483e5af",
+      "build.rs": "3b5ffaa2ad13f9e123361072e282733b8ab5398e48d24575e9c7ae8d769494a7",
+      "candidate.py": "6f40e06a074d8fca43115d42089c71795b6ed7412cd46d03d5334fc080b488b7"
+    },
+    "sources_unchanged": true,
+    "tested_cases_sha256": "0c960d04ec64fa0072f837be9aeefe4f816c04348bbb53f2cd75fa6d7cbd855a"
+  },
+  "totals": {
+    "tested": 384,
+    "failures": 50,
+    "shrink_executions": 9,
+    "api_tested": 9,
+    "api_failures": 1
+  },
+  "claims": {
+    "verified": [
+      "mean: 128 positional cases and 3 keyword API checks, 0 mismatches under the declared contract",
+      "positive_energy: 128 positional cases and 3 keyword API checks, 0 mismatches under the declared contract"
+    ],
+    "failed": [
+      "sum_squares: 128 positional cases and 3 keyword API checks, 51 mismatches under the declared contract"
+    ],
+    "untested": [
+      "Universal equivalence",
+      "Inputs outside the declared domain",
+      "Stateful or nondeterministic behavior",
+      "Dependency behavior beyond the captured source files",
+      "Security isolation",
+      "Performance improvements"
+    ]
+  },
+  "limitations": [
+    "Finite empirical testing is evidence of compatibility, not a proof of universal equivalence.",
+    "Trusted code only: subprocess time limits do not sandbox filesystem, network, or memory access.",
+    "Only one list of floats is generated; three bounded keyword-call checks supplement the main positional challenges. Unsupported types and other calling conventions are untested.",
+    "Source snapshots cover the two module files and declared contract; an optional morphproof-build.json hashes declared native artifacts. Other imported dependencies are not frozen.",
+    "Pure deterministic functions are assumed; each worker imports its module once and retains module state.",
+    "NaN payload bits are not compared; signed zero, infinities, result types and exception type/message are compared."
+  ],
+  "artifacts": {
+    "cases": "tested-cases.json",
+    "counterexamples": "counterexamples.json",
+    "reference": "reference.snapshot.py",
+    "candidate": "candidate.snapshot.py",
+    "contract": "contract.snapshot.json",
+    "replay": "replay.py"
+  }
+}

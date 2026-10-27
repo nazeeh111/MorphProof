@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "morphproof"
+version = "0.1.0"
+description = "Change the implementation. Preserve the contract. Record the evidence."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "Nazeeh"}]
+keywords = ["differential-testing", "rust", "code-migration", "verification"]
+classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Topic :: Software Development :: Testing"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "hypothesis>=6,<7"]
+build = ["maturin>=1.9,<2"]
+figures = ["matplotlib>=3.9,<4"]
+
+[project.scripts]
+morphproof = "morphproof.cli:main"
+
+[project.urls]
+Repository = "https://github.com/nazeeh111/MorphProof"
+Documentation = "https://github.com/nazeeh111/MorphProof/tree/main/docs"
+Issues = "https://github.com/nazeeh111/MorphProof/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

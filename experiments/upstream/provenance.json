@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "retrieved_utc_date": "2026-10-26",
+  "selection": "independent source inspection for small numerical list APIs, before examining candidate implementations",
+  "projects": [
+    {
+      "name": "more-itertools",
+      "repository": "https://github.com/more-itertools/more-itertools",
+      "commit": "4aeb4338ae1407d8da9723e86da99efeb446f719",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "more_itertools/recipes.py",
+          "upstream_path": "more_itertools/recipes.py",
+          "sha256": "468ab191bbb5fd62e8603d741e6983acdfa9d697d0ff9252b0c56ffdd24ca9bc",
+          "url": "https://github.com/more-itertools/more-itertools/blob/4aeb4338ae1407d8da9723e86da99efeb446f719/more_itertools/recipes.py",
+          "modifications": "none; exact downloaded bytes"
+        },
+        {
+          "path": "more_itertools/LICENSE",
+          "upstream_path": "LICENSE",
+          "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+          "url": "https://github.com/more-itertools/more-itertools/blob/4aeb4338ae1407d8da9723e86da99efeb446f719/LICENSE",
+          "modifications": "none; exact downloaded bytes"
+        }
+      ]
+    },
+    {
+      "name": "boltons",
+      "repository": "https://github.com/mahmoud/boltons",
+      "commit": "d31d821d56c8f7756af9c30a864077f2e5855321",
+      "license": "BSD-3-Clause",
+      "files": [
+        {
+          "path": "boltons/statsutils.py",
+          "upstream_path": "boltons/statsutils.py",
+          "sha256": "374e390e77eadbe15c1fecba3883e2e1e94cda5d50f1cdc1acd47ae3a553cc64",
+          "url": "https://github.com/mahmoud/boltons/blob/d31d821d56c8f7756af9c30a864077f2e5855321/boltons/statsutils.py",
+          "modifications": "none; exact downloaded bytes"
+        },
+        {
+          "path": "boltons/LICENSE",
+          "upstream_path": "LICENSE",
+          "sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+          "url": "https://github.com/mahmoud/boltons/blob/d31d821d56c8f7756af9c30a864077f2e5855321/LICENSE",
+          "modifications": "none; exact downloaded bytes"
+        }
+      ]
+    }
+  ]
+}

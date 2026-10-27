@@ -1,0 +1,21 @@
+{
+  "selected_master": "docs/media/morphproof-demo-v2.mp4",
+  "sha256": "3e553034441d569255654676c751bbd520bd12f4d0de4cfedf3ae8cd79a1fe05",
+  "duration_seconds": 26.5,
+  "width": 1280,
+  "height": 720,
+  "fps": "30/1",
+  "audio_streams": 0,
+  "full_ffmpeg_decode": "passed",
+  "visually_inspected_frames_seconds": [
+    0,
+    3.85,
+    4.4,
+    8.5,
+    14.2,
+    19,
+    25
+  ],
+  "visual_findings": "Readable settled captions, exact recorded [1] counterexample, repaired native source and actual benchmark table, clean editorial dip to black, complete ending.",
+  "review_limit": "Settled and transition frames inspected; no real-time motion playback review claimed."
+}

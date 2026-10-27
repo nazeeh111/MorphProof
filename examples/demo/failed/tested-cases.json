@@ -1,0 +1,8537 @@
+[
+  {
+    "function": "sum_squares",
+    "case_index": 0,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      1.0,
+      {
+        "$float": "nan"
+      },
+      -1.0,
+      1.0,
+      1.0,
+      0.0,
+      -0.0,
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 1,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      1e+39,
+      1e+248,
+      -1e+294,
+      1e-256,
+      100000000000000.0,
+      {
+        "$float": "-inf"
+      },
+      -1e-178,
+      -1e-120,
+      -1e+137,
+      1e-180,
+      1e-135,
+      -1e+64,
+      1e-07,
+      1e-98,
+      1e+305,
+      1e+208
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 2,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 3,
+    "family": "empty",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 4,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 3.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 2.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 5,
+    "family": "underflow",
+    "call": "positional",
+    "input": [
+      1e-300,
+      -1e-300
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 6,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 7,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 8,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 9,
+    "family": "singleton",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 10,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 11,
+    "family": "constant",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 12,
+    "family": "overflow",
+    "call": "positional",
+    "input": [
+      1e+308,
+      1e+308
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 13,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 14,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 15,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 16,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 17,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 18,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 19,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 20,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 21,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 22,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 23,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 7.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 6.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 24,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 25,
+    "family": "singleton",
+    "call": "positional",
+    "input": [
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 26,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 27,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 28,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 29,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 30,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 31,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 32,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 33,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 34,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 35,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 36,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 37,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      0.0,
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 38,
+    "family": "constant",
+    "call": "positional",
+    "input": [
+      0.0,
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 39,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 40,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 41,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 42,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 43,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 44,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 45,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 46,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 47,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 48,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 49,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 50,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 51,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 52,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 53,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 54,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 55,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 56,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 57,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 58,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 59,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 60,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 61,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 62,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 63,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 8.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 7.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 64,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 65,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 66,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 67,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 68,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 69,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      },
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 70,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      },
+      -1e-149
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-298
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 71,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 72,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 73,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 74,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 75,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 76,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 31.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 30.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 77,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      -1e+257,
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 78,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 79,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 80,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 81,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 82,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 83,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 84,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 85,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 86,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 87,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      -1.0,
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 88,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      },
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 89,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -5.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 25.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 90,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 91,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 92,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 93,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -5.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 25.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 94,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 95,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 96,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 32.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 31.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 97,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -5.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 25.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 98,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 99,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 100,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      -1e+199,
+      {
+        "$float": "+inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 101,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      9.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 81.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 102,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e-196
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 103,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 104,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 105,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e+247
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 106,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      9.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 81.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 107,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      -1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 108,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      27.193658986663394
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 739.4950890829388
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 109,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      9.968415485781826
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 99.36930729717491
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 110,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e+295
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 111,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -6.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 36.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 112,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      15.993865154670743
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 255.803722585791
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 113,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e-153
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-306
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 114,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      -6.385169075593902
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 40.770384123920685
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 115,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      70.41084492867475
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 4957.687083569883
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 116,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e-114
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-228
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 117,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      6.109813058437052
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 37.32981560904792
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 118,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -39.74091135796704
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1579.340035561794
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 119,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e+274
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 120,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      75.58005743309957
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 5712.345081590629
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 121,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e+123
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 9.999999999999999e+245
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 122,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      27.115915304111
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 735.2728627797211
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 123,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e-214
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 124,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      0.0,
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 125,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -10.523998454406566
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 110.7545434683518
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 126,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      93.06993998401492
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 8662.013728628139
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 127,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -51.447343627246525
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 2646.8291662999836
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [
+      1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 2.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 0,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      0.0,
+      1.0,
+      -1.0,
+      -0.0,
+      {
+        "$float": "+inf"
+      },
+      -0.0,
+      -0.0,
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 1,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      -1e+188,
+      1e-223,
+      1e+65,
+      1e-261,
+      -1e+145,
+      1e-148,
+      -1e-107,
+      -1e+200,
+      1e+102,
+      1e-23,
+      -1e-180,
+      -1e-222,
+      100000.0,
+      -1e-194,
+      -1e+152,
+      -1e-13,
+      -1e-94,
+      -1e+227,
+      1e-291,
+      -1e-211,
+      -1e-143,
+      -1e-189,
+      1e-38,
+      1e-170,
+      -1e-149,
+      -1e-82,
+      -1e+34,
+      -1e-118,
+      -1e-122,
+      -1e-22,
+      -1e+282,
+      -1e-132,
+      1e-178,
+      1e+33,
+      -1e-281,
+      1e-301,
+      -1e-92,
+      1e-283,
+      -100000000000.0,
+      1e-168,
+      1e-18,
+      -1e-37,
+      -1e-206,
+      -1e-289,
+      -1e-156,
+      -1e-254,
+      1e+259,
+      -0.001,
+      -1e-241,
+      -1e+148,
+      1e-133,
+      -1e+147,
+      1e+186,
+      -1e-38,
+      1e+273,
+      1e+259,
+      1e+219,
+      -1e-71,
+      -1e-149,
+      -1e-112,
+      -1e+42,
+      -1e-75,
+      1e-218,
+      -1e+58,
+      1e-159,
+      -1e+228,
+      -1e-179,
+      1e+184,
+      1e-161,
+      -1e-79,
+      -1e-205,
+      -1e+128,
+      -1e+218,
+      -1e-49,
+      -1e-79,
+      1e-231,
+      1e-160,
+      1e+131,
+      -1e-270,
+      -1e-231,
+      1e-69,
+      1e-54,
+      -1e-156,
+      -1e-74,
+      -1e-136,
+      1e+28,
+      1e+19,
+      1e-96,
+      1e+80,
+      -1e+180,
+      1e+93,
+      -1e+99,
+      1e+148,
+      -1e-141,
+      1e+222,
+      1e+109,
+      -1e-88,
+      1e+258,
+      1e-195,
+      1e-160,
+      1e-225,
+      -1e-83,
+      1e-11,
+      -1e+64,
+      1e+190,
+      -1e-168,
+      -1e+210,
+      -1e+218,
+      -1000000000000.0,
+      -1e+21,
+      1e+108,
+      -1e-214,
+      1e+76,
+      1e-57,
+      1e+298,
+      -1e+87,
+      1e-89,
+      1e-127,
+      1e-263,
+      -1e+213,
+      -1e-90,
+      -1e-212,
+      1e+193,
+      1e-136,
+      -1e-304,
+      1e+263,
+      -1e+180,
+      -1e+39,
+      -1e-22,
+      -1e+76,
+      -1e+300,
+      1e-173,
+      -1e+226,
+      1e+43,
+      -1e-165,
+      1e+233,
+      1e-89,
+      1e-218,
+      1e-285,
+      1e-180,
+      -1e-77,
+      1e-178,
+      -1e-248,
+      -1e-289,
+      1e-47,
+      1e+118,
+      -1e-225,
+      -1e-271,
+      1e-222,
+      -1e+267,
+      -1e+57,
+      0.0001,
+      -1e-243,
+      -1e-124,
+      -1.0,
+      1e+278,
+      1e-303,
+      -1e-191,
+      -1e-266,
+      -1e-42,
+      1e+201,
+      1e+62,
+      1e+161,
+      1e-191,
+      1e-101,
+      1e-253,
+      -1e+219,
+      1e+259,
+      1e-91,
+      1e+70,
+      1e-141,
+      1e+145,
+      1e-37,
+      -1e+133,
+      1e-259,
+      1e-221,
+      1e+232,
+      1e-50,
+      1e-169,
+      1e+115,
+      1e-213,
+      -1e+22,
+      1e-263,
+      -1e+65,
+      -1e+234,
+      -1e+132,
+      1e-13,
+      1e+176,
+      -1e-209,
+      -1e+208,
+      1e+52,
+      1e-131,
+      -1e+171,
+      1e+193,
+      1e-185,
+      -1e-257,
+      -1e-25,
+      -1e-55,
+      1e+229,
+      1e+103,
+      1e-264,
+      1e+158,
+      -1e+281,
+      -1e-80,
+      -1e+216,
+      -1e+52,
+      1e+304,
+      1e+68,
+      1e-75,
+      -1e-91,
+      1e+280,
+      1e-264,
+      -1e+189,
+      1e-229,
+      1e+278,
+      -1e+104,
+      {
+        "$float": "nan"
+      },
+      1e+50,
+      -1e-83,
+      -1e+144,
+      -1e+187,
+      -10000000000000.0,
+      1e-68,
+      1e+71,
+      -1e+192,
+      1e+239,
+      1e-301,
+      1e+133,
+      -1e-248,
+      -1e-22,
+      1e+306,
+      1e+164,
+      1e-76,
+      -1e-285,
+      1e-183,
+      -1e+132,
+      -1e+148,
+      -1e-296,
+      1e+226,
+      1e+298,
+      1e+121,
+      -1e+153,
+      1e+120,
+      1e-68,
+      1e-72,
+      -1e-168,
+      1e-149,
+      1e+99,
+      1e+254,
+      1e-119,
+      -1e+78,
+      1e+307,
+      -1e-115,
+      1e+192,
+      1e-182,
+      1e-84
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 2,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "-inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "-inf"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 3,
+    "family": "empty",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 4,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 5,
+    "family": "underflow",
+    "call": "positional",
+    "input": [
+      1e-300,
+      -1e-300
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 6,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 7,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 8,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 9,
+    "family": "singleton",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 10,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 11,
+    "family": "constant",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 12,
+    "family": "overflow",
+    "call": "positional",
+    "input": [
+      1e+308,
+      1e+308
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 13,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 14,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 15,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 16,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 17,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 18,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 19,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 20,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 21,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 22,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 23,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 24,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 25,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 26,
+    "family": "singleton",
+    "call": "positional",
+    "input": [
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 27,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 28,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 29,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 30,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 31,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 32,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 33,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 34,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 35,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      0.0,
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 36,
+    "family": "constant",
+    "call": "positional",
+    "input": [
+      0.0,
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 37,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 38,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 39,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 40,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 41,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 42,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 43,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 44,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 45,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 46,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 47,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 48,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 49,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 50,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 51,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 52,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 53,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 54,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 55,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 56,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 57,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 58,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 59,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      },
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 60,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 61,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      },
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 62,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 63,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 64,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 65,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 66,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+16
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+16
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 67,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      0.0,
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 68,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 69,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 70,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 71,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      },
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 72,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e-118
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-118
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-118
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 73,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 74,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 75,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 76,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 77,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 78,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 79,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e-227
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-227
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-227
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 80,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 81,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 82,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 83,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 84,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 85,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 86,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      0.01
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.01
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.01
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 87,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 88,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 89,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 90,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -4.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -4.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -4.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 91,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 92,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e-283
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-283
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-283
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 93,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 94,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      },
+      -5e-324,
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 95,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 96,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      -1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1e+16
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1e+16
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 97,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      1.0035992792710111
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0035992792710111
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0035992792710111
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 98,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e-102
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-102
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-102
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 99,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 100,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -7.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -7.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -7.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 101,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 102,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -89.37039800221056
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -89.37039800221056
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -89.37039800221056
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 103,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      -5.529532528956653
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -5.529532528956653
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -5.529532528956653
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 104,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e-79
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1e-79
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1e-79
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 105,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -5e-324
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 106,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      7.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 7.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 7.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 107,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      45.835195203612045
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 45.835195203612045
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 45.835195203612045
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 108,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      -8.723347509942238
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -8.723347509942238
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -8.723347509942238
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 109,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e-298
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-298
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e-298
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 110,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      23.878821602375282
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 23.878821602375282
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 23.878821602375282
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 111,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      4.376271250727793
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 4.376271250727793
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 4.376271250727793
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 112,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e+169
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1e+169
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1e+169
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 113,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -36.03042865826893
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -36.03042865826893
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -36.03042865826893
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 114,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      -9.229391191742682
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -9.229391191742682
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -9.229391191742682
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 115,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      36.53093895499336
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 36.53093895499336
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 36.53093895499336
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 116,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      -1.06778917297925
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.06778917297925
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.06778917297925
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 117,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      1.4145503637464003
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.4145503637464003
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.4145503637464003
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 118,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      3.588670791005086
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 3.588670791005086
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 3.588670791005086
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 119,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      22.192795911834764
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 22.192795911834764
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 22.192795911834764
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 120,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      -47.36505271515301,
+      27.28744358323793,
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 121,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 122,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      0.0,
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 123,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      -1e+51,
+      1e+306,
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "-inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "-inf"
+      }
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 124,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 125,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -0.5
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -0.5
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 126,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": -1.0
+    }
+  },
+  {
+    "function": "mean",
+    "case_index": 127,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [],
+    "reference": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    },
+    "candidate": {
+      "kind": "exception",
+      "type": "builtins.ValueError",
+      "message": "mean requires at least one value"
+    }
+  },
+  {
+    "function": "mean",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "mean",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [
+      1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 0,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      1.0,
+      -0.0,
+      -1.0,
+      {
+        "$float": "+inf"
+      },
+      0.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 1,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      1e+190,
+      1e-40,
+      -1e-88,
+      1e-72,
+      1e+165,
+      1e+166,
+      1e+147,
+      1e+73,
+      1e+64,
+      -1e+222,
+      -1e+164,
+      1e-41,
+      -1e-125,
+      -1e-102,
+      -1e+25,
+      -1e+94,
+      -100000000000.0,
+      -1e+31,
+      1e+213,
+      -1e-265,
+      1e+277,
+      -1e-50,
+      -1e-172,
+      1e-207,
+      1e-247,
+      {
+        "$float": "-inf"
+      },
+      -1e+184,
+      -1e-20,
+      -1e+209,
+      1e+195,
+      1e+129,
+      -0.1,
+      -1e+173,
+      1e-59,
+      1e-235,
+      1e-258,
+      -1e+301,
+      1e-41,
+      1e+251,
+      1e+131,
+      -1e+76,
+      1e+130,
+      1e-283,
+      -1e+114,
+      1e-20,
+      1e-05,
+      1e-216,
+      1e-102,
+      1e+73,
+      -1e+44,
+      1e+210,
+      1e+44,
+      -1e+304,
+      1e-159,
+      1e+284,
+      -1e-173,
+      -1e+231,
+      -1e-206,
+      1e-193,
+      1e-236,
+      -1e-26,
+      1e+166,
+      -1e-60,
+      100.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 2,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 3.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 3.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 3,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 4,
+    "family": "empty",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 5,
+    "family": "underflow",
+    "call": "positional",
+    "input": [
+      1e-300,
+      -1e-300
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 6,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 7,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 8,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 9,
+    "family": "singleton",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 10,
+    "family": "constant",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 11,
+    "family": "overflow",
+    "call": "positional",
+    "input": [
+      1e+308,
+      1e+308
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 12,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 13,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 14,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 15,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 16,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 17,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 18,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 19,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 20,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 7.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 7.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 21,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 22,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 23,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 24,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 25,
+    "family": "singleton",
+    "call": "positional",
+    "input": [
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 26,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 27,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 28,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 29,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 30,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 31,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 32,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 33,
+    "family": "repeated",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 34,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 35,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 36,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 37,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 38,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 39,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      0.0,
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 40,
+    "family": "constant",
+    "call": "positional",
+    "input": [
+      0.0,
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 41,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 42,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 43,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 44,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 45,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 46,
+    "family": "zero",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 47,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 48,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 49,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 50,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 51,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 52,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 53,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 54,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 8.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 8.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 55,
+    "family": "threshold",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 56,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 57,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 58,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 59,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 60,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 61,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 62,
+    "family": "scale",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 63,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 64,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 65,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 66,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 67,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 68,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 69,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 70,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 71,
+    "family": "sign",
+    "call": "positional",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 72,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 73,
+    "family": "nan",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      },
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 74,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 75,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 31.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 31.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 76,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      -9.800803199417436
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 77,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 78,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 79,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      -2.5417076763666753
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 80,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 81,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      5e-324,
+      {
+        "$float": "+inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 82,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 83,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 84,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 85,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 86,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 87,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      -1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 88,
+    "family": "zero",
+    "call": "positional",
+    "input": [
+      -0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 89,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 32.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 32.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 90,
+    "family": "infinity",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      },
+      {
+        "$float": "-inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 91,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 92,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 93,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      -5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 94,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 95,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "+inf"
+      },
+      -39.67023381693717
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 96,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e+41
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 97,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 98,
+    "family": "cancellation",
+    "call": "positional",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 99,
+    "family": "threshold",
+    "call": "positional",
+    "input": [
+      5e-324
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 100,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e+221
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 101,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e+39
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 102,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      8.82827697914857
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 77.93847442056459
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 77.93847442056459
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 103,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e-226
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 104,
+    "family": "nonfinite",
+    "call": "positional",
+    "input": [
+      {
+        "$float": "nan"
+      },
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 105,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -46.11042654117343
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 106,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e+72
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 107,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      8.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 64.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 64.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 108,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -72.11218436478913
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 109,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e-68
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 110,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -4.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 111,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -27.148533221925916
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 112,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e-77
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 9.999999999999998e-155
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 9.999999999999998e-155
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 113,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -2.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 114,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      77.11599313796421
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 5946.876397654543
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 5946.876397654543
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 115,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e-88
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 116,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -6.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 117,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e-69
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 9.999999999999999e-139
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 9.999999999999999e-139
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 118,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      -94.57905980647664
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 119,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      7.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 49.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 49.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 120,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -100000000000000.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 121,
+    "family": "ordinary",
+    "call": "positional",
+    "input": [
+      19.517137767275145
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 380.9186666267978
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 380.9186666267978
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 122,
+    "family": "sign",
+    "call": "positional",
+    "input": [
+      -7.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 123,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e-199
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 124,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      -1e+217
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 125,
+    "family": "scale",
+    "call": "positional",
+    "input": [
+      1e+270
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 126,
+    "family": "repeated",
+    "call": "positional",
+    "input": [
+      2.0,
+      2.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 8.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 8.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "case_index": 127,
+    "family": "length",
+    "call": "positional",
+    "input": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 256.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 256.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [
+      0.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "positive_energy",
+    "call": "keyword",
+    "keyword": "values",
+    "input": [
+      1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    }
+  }
+]

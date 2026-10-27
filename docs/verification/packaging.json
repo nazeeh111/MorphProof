@@ -1,0 +1,7 @@
+{
+  "wheel": "numerics_morphproof-0.1.0-cp310-abi3-macosx_11_0_arm64.whl",
+  "package_import": "numerics",
+  "distribution": "numerics-morphproof",
+  "fresh_install": "passed (isolated interpreter, asserted site-packages)",
+  "native_sha256": "935cf123020ec8fb606da5eccb11f9963c54b0a95f52b4151dcd1f98c5e74514"
+}

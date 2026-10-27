@@ -1,0 +1,11 @@
+--- initial.rs
++++ repaired.rs
+@@ -24,7 +24,7 @@
+     let mut v_total: f64;
+     let mut v_value: f64;
+     v_total = 0.0_f64;
+-    for mp_item in values.iter().copied().skip(1) {
++    for mp_item in values.iter().copied() {
+         v_value = mp_item;
+         v_total = (v_total + (v_value * v_value));
+     }

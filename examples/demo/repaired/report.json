@@ -1,0 +1,353 @@
+{
+  "schema": 1,
+  "status": "compatible",
+  "functions": [
+    {
+      "name": "sum_squares",
+      "status": "compatible",
+      "tested": 256,
+      "failures": 0,
+      "counterexamples": [],
+      "shrink_executions": 0,
+      "errors": [],
+      "api_tested": 3,
+      "api_failures": 0,
+      "selection": {
+        "feedback": "reference-only",
+        "families": {
+          "cancellation": 27,
+          "constant": 2,
+          "empty": 1,
+          "infinity": 3,
+          "length": 6,
+          "nan": 3,
+          "nonfinite": 12,
+          "ordinary": 32,
+          "overflow": 1,
+          "repeated": 37,
+          "scale": 29,
+          "sign": 32,
+          "singleton": 2,
+          "threshold": 36,
+          "underflow": 1,
+          "zero": 32
+        },
+        "reference_lines": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "reference_arcs": [
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            11,
+            10
+          ]
+        ],
+        "input_features": [
+          "+inf",
+          "+zero",
+          "-inf",
+          "-zero",
+          "cancellation",
+          "constant:0.0",
+          "large",
+          "len:0",
+          "len:1",
+          "len:2",
+          "len:long",
+          "len:short",
+          "mixed-sign",
+          "nan",
+          "negative",
+          "ordinary",
+          "positive",
+          "repeated",
+          "tiny"
+        ],
+        "structural_analysis": {
+          "constants": [
+            0.0
+          ],
+          "hazards": [
+            "branch",
+            "division",
+            "index",
+            "reduction"
+          ]
+        }
+      }
+    },
+    {
+      "name": "mean",
+      "status": "compatible",
+      "tested": 256,
+      "failures": 0,
+      "counterexamples": [],
+      "shrink_executions": 0,
+      "errors": [],
+      "api_tested": 3,
+      "api_failures": 0,
+      "selection": {
+        "feedback": "reference-only",
+        "families": {
+          "cancellation": 40,
+          "constant": 2,
+          "empty": 1,
+          "infinity": 3,
+          "length": 6,
+          "nan": 3,
+          "nonfinite": 14,
+          "ordinary": 38,
+          "overflow": 1,
+          "repeated": 25,
+          "scale": 21,
+          "sign": 21,
+          "singleton": 2,
+          "threshold": 41,
+          "underflow": 1,
+          "zero": 37
+        },
+        "reference_lines": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "reference_arcs": [
+          [
+            16,
+            17
+          ],
+          [
+            16,
+            18
+          ],
+          [
+            18,
+            19
+          ],
+          [
+            19,
+            20
+          ],
+          [
+            19,
+            21
+          ],
+          [
+            20,
+            19
+          ]
+        ],
+        "input_features": [
+          "+inf",
+          "+zero",
+          "-inf",
+          "-zero",
+          "cancellation",
+          "constant:0.0",
+          "large",
+          "len:0",
+          "len:1",
+          "len:2",
+          "len:long",
+          "len:short",
+          "mixed-sign",
+          "nan",
+          "negative",
+          "ordinary",
+          "positive",
+          "repeated",
+          "tiny"
+        ],
+        "structural_analysis": {
+          "constants": [
+            0.0
+          ],
+          "hazards": [
+            "branch",
+            "division",
+            "index",
+            "reduction"
+          ]
+        }
+      }
+    },
+    {
+      "name": "positive_energy",
+      "status": "compatible",
+      "tested": 256,
+      "failures": 0,
+      "counterexamples": [],
+      "shrink_executions": 0,
+      "errors": [],
+      "api_tested": 3,
+      "api_failures": 0,
+      "selection": {
+        "feedback": "reference-only",
+        "families": {
+          "cancellation": 38,
+          "constant": 2,
+          "empty": 1,
+          "infinity": 3,
+          "length": 6,
+          "nan": 3,
+          "nonfinite": 18,
+          "ordinary": 26,
+          "overflow": 1,
+          "repeated": 22,
+          "scale": 26,
+          "sign": 27,
+          "singleton": 2,
+          "threshold": 41,
+          "underflow": 1,
+          "zero": 39
+        },
+        "reference_lines": [
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "reference_arcs": [
+          [
+            25,
+            26
+          ],
+          [
+            26,
+            27
+          ],
+          [
+            26,
+            29
+          ],
+          [
+            27,
+            26
+          ],
+          [
+            27,
+            28
+          ],
+          [
+            28,
+            26
+          ]
+        ],
+        "input_features": [
+          "+inf",
+          "+zero",
+          "-inf",
+          "-zero",
+          "cancellation",
+          "constant:0.0",
+          "large",
+          "len:0",
+          "len:1",
+          "len:2",
+          "len:long",
+          "len:short",
+          "mixed-sign",
+          "nan",
+          "negative",
+          "ordinary",
+          "positive",
+          "repeated",
+          "tiny"
+        ],
+        "structural_analysis": {
+          "constants": [
+            0.0
+          ],
+          "hazards": [
+            "branch",
+            "division",
+            "index",
+            "reduction"
+          ]
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "reference": "/Users/nazeeh/Documents/Codex/2026-10-26/goal-build-and-publicly-release-morphproof/outputs/MorphProof/examples/kernels.py",
+    "candidate": "/Users/nazeeh/Documents/Codex/2026-10-26/goal-build-and-publicly-release-morphproof/work/native-final/candidate.py",
+    "reference_sha256": "b9bbe755490c2723cd95c160d88a6622931de7f12eb00ac1f746229984c99e65",
+    "candidate_sha256": "6f40e06a074d8fca43115d42089c71795b6ed7412cd46d03d5334fc080b488b7",
+    "contract_sha256": "2a24ce7de33adfee23d389f50de72beabda23a61838c9c2aee0bb83a71c176b5",
+    "seed": 97,
+    "strategy": "adaptive",
+    "budget": 256,
+    "budget_unit": "differential challenge pairs per function",
+    "python": "3.14.7",
+    "timeout_seconds": 3.0,
+    "artifact_sha256": {
+      "morphproof-build.json": "3901967a6bbf8efdf873aa5dd1f5c17021e9b1869869103dd3155e829436b7cd",
+      "_morphproof_native.cpython-314-darwin.so": "c26d952b3ebce4ba41ce291eae34891e994d777dcaccee4c57546a23774bd039",
+      "src/lib.rs": "c254e3a32df90735bbf5369f3079cdbd6b2d1f256be0d3e50d69e028c8bc76d2",
+      "Cargo.toml": "402d1e685b0b29910de0b2e796f6328d302db64b4b0c548b2ff19bdc2a1a96ff",
+      "build.rs": "3b5ffaa2ad13f9e123361072e282733b8ab5398e48d24575e9c7ae8d769494a7",
+      "candidate.py": "6f40e06a074d8fca43115d42089c71795b6ed7412cd46d03d5334fc080b488b7",
+      "pyproject.toml": "8751e21d3055101561bbd82c3a23a4c1096b932eb0d9e9ec1748ea18b82365a9",
+      "Cargo.lock": "3b3fd502cf971a5e217f406efddb58a5667f0bfbd97de6dac71e955f7483e5af"
+    },
+    "sources_unchanged": true,
+    "tested_cases_sha256": "00c6b830affcf64c448cf398b1e86599675f58684874c94f0ac501732d794a50"
+  },
+  "totals": {
+    "tested": 768,
+    "failures": 0,
+    "shrink_executions": 0,
+    "api_tested": 9,
+    "api_failures": 0
+  },
+  "claims": {
+    "verified": [
+      "sum_squares: 256 positional cases and 3 keyword API checks, 0 mismatches under the declared contract",
+      "mean: 256 positional cases and 3 keyword API checks, 0 mismatches under the declared contract",
+      "positive_energy: 256 positional cases and 3 keyword API checks, 0 mismatches under the declared contract"
+    ],
+    "failed": [],
+    "untested": [
+      "Universal equivalence",
+      "Inputs outside the declared domain",
+      "Stateful or nondeterministic behavior",
+      "Dependency behavior beyond the captured source files",
+      "Security isolation",
+      "Performance improvements"
+    ]
+  },
+  "limitations": [
+    "Finite empirical testing is evidence of compatibility, not a proof of universal equivalence.",
+    "Trusted code only: subprocess time limits do not sandbox filesystem, network, or memory access.",
+    "Only one list of floats is generated; three bounded keyword-call checks supplement the main positional challenges. Unsupported types and other calling conventions are untested.",
+    "Source snapshots cover the two module files and declared contract; an optional morphproof-build.json hashes declared native artifacts. Other imported dependencies are not frozen.",
+    "Pure deterministic functions are assumed; each worker imports its module once and retains module state.",
+    "NaN payload bits are not compared; signed zero, infinities, result types and exception type/message are compared."
+  ],
+  "artifacts": {
+    "cases": "tested-cases.json",
+    "counterexamples": "counterexamples.json",
+    "reference": "reference.snapshot.py",
+    "candidate": "candidate.snapshot.py",
+    "contract": "contract.snapshot.json",
+    "replay": "replay.py"
+  }
+}

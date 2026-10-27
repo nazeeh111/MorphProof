@@ -1,0 +1,182 @@
+[
+  {
+    "function": "sum_squares",
+    "case_index": 2,
+    "family": "nonfinite",
+    "input": [
+      {
+        "$float": "+inf"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "minimized_input": [
+      {
+        "$float": "+inf"
+      }
+    ],
+    "minimization_calls": 1,
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "+inf"
+      }
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 4,
+    "family": "length",
+    "input": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 3.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 2.0
+    },
+    "minimized_input": [
+      1.0
+    ],
+    "minimization_calls": 4,
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 9,
+    "family": "singleton",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "minimized_input": [
+      1.0
+    ],
+    "minimization_calls": 3,
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "case_index": 10,
+    "family": "nan",
+    "input": [
+      {
+        "$float": "nan"
+      }
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "minimized_input": [
+      {
+        "$float": "nan"
+      }
+    ],
+    "minimization_calls": 1,
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": {
+        "$float": "nan"
+      }
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "sum_squares",
+    "family": "keyword-api",
+    "keyword": "values",
+    "input": [
+      1.0,
+      -1.0
+    ],
+    "minimized_input": [
+      1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 2.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 2.0
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimization_calls": 0
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "functions": [
+    {
+      "atol": 0.0,
+      "input": "list[float]",
+      "max_length": 256,
+      "name": "sum_squares",
+      "output": "float",
+      "parameter": "values",
+      "rtol": 0.0
+    },
+    {
+      "atol": 0.0,
+      "input": "list[float]",
+      "max_length": 256,
+      "name": "mean",
+      "output": "float",
+      "parameter": "values",
+      "rtol": 0.0
+    },
+    {
+      "atol": 0.0,
+      "input": "list[float]",
+      "max_length": 256,
+      "name": "positive_energy",
+      "output": "float",
+      "parameter": "values",
+      "rtol": 0.0
+    }
+  ],
+  "objective": "Compile ordered numeric reductions to Rust while preserving declared float behavior",
+  "schema": 1
+}

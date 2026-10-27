@@ -1,0 +1,51 @@
+{
+  "description": "Edited silent screen walkthrough of real local Studio evidence. No UI values were fabricated.",
+  "capture_method": "Codex CUA Chrome extension; 1280x720 viewport; actual attempt selection, function filtering, source tab and counterexample controls.",
+  "seeded_defect": "The initial Rust sum_squares loop deliberately omitted its first input using .skip(1). This is a disclosed demonstration defect, not a naturally observed migration bug.",
+  "evidence": {
+    "failed": "examples/demo/failed/report.json",
+    "repaired": "examples/demo/repaired/report.json",
+    "run_metadata": "examples/demo/repaired/run.json"
+  },
+  "checks": {
+    "repaired": 777,
+    "repaired_positional": 768,
+    "repaired_keyword": 9,
+    "repaired_mismatches": 0,
+    "initial_checks": 393,
+    "initial_mismatches": 51
+  },
+  "performance": {
+    "function": "sum_squares",
+    "length": 100000,
+    "speedup": 1.9592365061409869,
+    "repeats": 11,
+    "iterations_per_batch": 30,
+    "note": "Includes argument conversion and wrapper dispatch; measured on macOS arm64/Python3.14.7. Other cases differ; positive_energy length16 was slower."
+  },
+  "screenshots": {
+    "01-overview.png": "f855e3198f90ebc3c95f977e008134d90266df698f8b83a3d92b4df28ac10988",
+    "02-seeded-failure-v2.png": "55b00975ccaf46bb41daed9c126fec5c7cde31cf2be12afe10429ee05313d2de",
+    "03-minimized-counterexample.png": "0784403b6976c56860e77137c998894eba30c4fcfcf1c839a87eb54cef5ae61c",
+    "04-repaired-rust.png": "af472f683c685dc405c6b17ca2909fc0d0aa6a3038003c9f1244c1682dd81f71",
+    "05-benchmark.png": "dce04d3cbf039c9acaec259de503e6f5fea15240ef6a5c70341c8c8b8be6725a"
+  },
+  "evidence_sha256": {
+    "examples/demo/repaired/report.json": "a5b54e32ed606974a13930690a5e061f5ba8ad833b3b4e432ebc7d426561350e",
+    "examples/demo/repaired/run.json": "c2b94cc7ae2cd354daa600c04b6b7b7e987be5cdf59d32c81f0bbc50ceaaa09c"
+  },
+  "edit": {
+    "duration_seconds": 26.5,
+    "width": 1280,
+    "height": 720,
+    "frame_rate": 30,
+    "audio": false,
+    "transition": "0.3s editorial dip to black, not real execution timing"
+  },
+  "limitations": [
+    "Finite tests do not prove universal equivalence.",
+    "Adaptive selector superiority is not claimed.",
+    "The benchmark is one local case study; no universal speedup is claimed.",
+    "Edited screenshots show recorded evidence; this is not a real-time recording of compilation or repair."
+  ]
+}

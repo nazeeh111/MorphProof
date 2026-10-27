@@ -1,0 +1,8 @@
+include README.md LICENSE SECURITY.md CONTRIBUTING.md rust-toolchain.toml
+recursive-include assets *.svg
+recursive-include docs *.md *.png *.svg
+recursive-include examples *.py *.json *.rs *.patch *.md *.html
+recursive-include experiments *.py *.json *.md *.txt
+recursive-include experiments/upstream LICENSE
+prune examples/demo/native/target
+exclude experiments/*.partial.json
