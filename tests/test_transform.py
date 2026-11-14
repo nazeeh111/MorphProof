@@ -1,10 +1,14 @@
 import importlib.util
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
-from morphproof.transform import UnsupportedSource, generate, transform
+from morphproof.transform import UnsupportedSource, _native_library, build_candidate, generate, transform
 
 
 CONTRACT = {"schema": 1, "functions": [{"name": "energy", "parameter": "values", "input": "list[float]", "output": "float"}]}
@@ -36,6 +40,91 @@ class TransformTests(unittest.TestCase):
         self.assertFalse(manifest["built"])
         self.assertEqual(len(manifest["reference_sha256"]), 64)
         self.assertEqual(json.loads((destination / "manifest.json").read_text())["schema"], 1)
+
+    def test_build_does_not_follow_ambient_cargo_target_directory(self):
+        destination = self.root / "candidate"
+        transform(self.reference, destination, CONTRACT, build=False)
+        external = self.root / "shared-target"
+
+        def compile_fixture(command, **kwargs):
+            target = Path(command[command.index("--target-dir") + 1]) if "--target-dir" in command else external
+            suffix = ".dylib" if sys.platform == "darwin" else ".dll" if sys.platform == "win32" else ".so"
+            library = target / "release" / (("" if sys.platform == "win32" else "lib") + "_morphproof_native" + suffix)
+            library.parent.mkdir(parents=True)
+            library.write_bytes(b"test compiled artifact")
+            (destination / "Cargo.lock").write_text("# fixture lock\n")
+            message = {"reason": "compiler-artifact", "manifest_path": command[command.index("--manifest-path") + 1],
+                       "target": {"name": "_morphproof_native", "crate_types": ["cdylib"]},
+                       "filenames": [str(library)]}
+            return subprocess.CompletedProcess(command, 0, json.dumps(message))
+
+        with patch.dict(os.environ, {"CARGO_TARGET_DIR": str(external)}), \
+                patch("morphproof.transform.shutil.which", return_value="fixture-cargo"), \
+                patch("morphproof.transform.subprocess.run", side_effect=compile_fixture), \
+                patch("morphproof.transform.platform.platform", return_value="fixture platform"), \
+                patch("morphproof.transform.subprocess.check_output", return_value="fixture toolchain"):
+            result = build_candidate(destination)
+        self.assertTrue(result["built"])
+        self.assertEqual(Path(result["native"]).read_bytes(), b"test compiled artifact")
+        self.assertFalse(external.exists())
+
+    def test_reported_native_library_handles_default_and_host_target_layouts(self):
+        destination = self.root / "candidate with spaces"
+        suffix = ".dylib" if sys.platform == "darwin" else ".dll" if sys.platform == "win32" else ".so"
+        filename = ("" if sys.platform == "win32" else "lib") + "_morphproof_native" + suffix
+        for layout in ["release", "aarch64-apple-darwin/release"]:
+            with self.subTest(layout=layout):
+                library = destination / "target" / layout / filename
+                library.parent.mkdir(parents=True)
+                library.write_bytes(b"reported library")
+                message = {"reason": "compiler-artifact", "manifest_path": str(destination / "Cargo.toml"),
+                           "target": {"name": "_morphproof_native", "crate_types": ["cdylib"]},
+                           "filenames": [str(library), str(library.with_suffix(".pdb"))]}
+                output = "Finished release profile\n" + json.dumps(message)
+                self.assertEqual(_native_library(destination, output), library.resolve())
+
+    def test_reported_native_library_requires_one_owned_root_cdylib(self):
+        destination = self.root / "candidate"
+        suffix = ".dylib" if sys.platform == "darwin" else ".dll" if sys.platform == "win32" else ".so"
+        filename = ("" if sys.platform == "win32" else "lib") + "_morphproof_native" + suffix
+        library = destination / "target" / "release" / filename
+        library.parent.mkdir(parents=True)
+        library.write_bytes(b"stale library must not be guessed")
+        other = destination / "target" / "other" / filename
+        other.parent.mkdir()
+        other.write_bytes(b"ambiguous library")
+        outside = self.root / filename
+        outside.write_bytes(b"not owned")
+        message = {"reason": "compiler-artifact", "manifest_path": str(destination / "Cargo.toml"),
+                   "target": {"name": "_morphproof_native", "crate_types": ["cdylib"]},
+                   "filenames": [str(library)]}
+        invalid = [
+            "Finished release profile", "{malformed JSON", "[]", json.dumps({"reason": "compiler-artifact"}),
+            json.dumps(message | {"filenames": [str(destination / "target/missing" / filename)]}),
+            json.dumps(message | {"filenames": [str(library), str(other)]}),
+            json.dumps(message | {"filenames": [str(outside)]}),
+            json.dumps(message | {"manifest_path": str(self.root / "dependency/Cargo.toml")}),
+            json.dumps(message | {"target": {"name": "_morphproof_native", "crate_types": ["rlib"]}}),
+            json.dumps(message | {"filenames": "not an array"}),
+            json.dumps(message | {"filenames": [None, 42]}),
+        ]
+        for output in invalid:
+            with self.subTest(output=output), self.assertRaises(RuntimeError):
+                _native_library(destination, output)
+
+    def test_reported_artifact_cannot_bypass_build_source_guard(self):
+        destination = self.root / "candidate"
+        transform(self.reference, destination, CONTRACT, build=False)
+
+        def mutate_source(command, **kwargs):
+            (destination / "candidate.py").write_text("changed during build")
+            return subprocess.CompletedProcess(command, 0, '{"reason":"compiler-artifact"}')
+
+        with patch("morphproof.transform.shutil.which", return_value="fixture-cargo"), \
+                patch("morphproof.transform.subprocess.run", side_effect=mutate_source), \
+                self.assertRaisesRegex(RuntimeError, "source or build configuration changed"):
+            build_candidate(destination)
+        self.assertEqual((destination / "build.log").read_text(), '{"reason":"compiler-artifact"}')
 
     def test_rejects_before_writing_partial_artifact(self):
         self.reference.write_text('def energy(values):\n    return sum(values)\n')
