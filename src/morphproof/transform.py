@@ -6,6 +6,7 @@ still required: successful compilation is not an equivalence claim.
 from __future__ import annotations
 
 import ast
+from contextlib import contextmanager
 import hashlib
 import json
 import keyword
@@ -17,6 +18,8 @@ import shutil
 import subprocess
 import sys
 import sysconfig
+import tempfile
+import stat
 import time
 
 
@@ -289,51 +292,240 @@ def generate(reference: Path, contract: dict, *, source: str | None = None) -> s
     return code + "    Ok(())\n}\n"
 
 
+def _owned_file(path: Path, root: Path) -> Path:
+    """Require an ordinary file under root without following artifact symlinks."""
+    try:
+        resolved = path.resolve(strict=True)
+        if (not resolved.is_relative_to(root) or not path.is_file()
+                or any(part.is_symlink() for part in (path, *path.parents)
+                       if part != root and root in part.parents)):
+            raise ValueError
+    except (OSError, ValueError):
+        raise RuntimeError("build artifact is missing or outside its owned directory") from None
+    return resolved
+
+
+def _target_directory(destination: Path) -> Path:
+    target = destination / "target"
+    if target.is_symlink() or not target.resolve().is_relative_to(destination):
+        raise RuntimeError("build target must stay inside the owned candidate directory")
+    return target
+
+
+def _native_library(destination: Path, output: str) -> Path:
+    """Select exactly the generated root cdylib reported by a successful Cargo run."""
+    target_directory = _target_directory(destination)
+    suffix = ".dylib" if sys.platform == "darwin" else ".dll" if sys.platform == "win32" else ".so"
+    filename = ("" if sys.platform == "win32" else "lib") + "_morphproof_native" + suffix
+    libraries: set[Path] = set()
+    finished = []
+    for line in output.splitlines():
+        try:
+            message = json.loads(line)
+        except json.JSONDecodeError:
+            continue  # Diagnostics and build tools can also print non-JSON lines.
+        if not isinstance(message, dict):
+            continue
+        if message.get("reason") == "build-finished":
+            finished.append(message.get("success") is True)
+            continue
+        target = message.get("target")
+        if (message.get("reason") != "compiler-artifact"
+                or message.get("manifest_path") != str(destination / "Cargo.toml")
+                or not isinstance(target, dict)
+                or target.get("name") != "_morphproof_native"
+                or target.get("src_path") != str(destination / "src/lib.rs")
+                or not isinstance(target.get("crate_types"), list)
+                or "cdylib" not in target["crate_types"]):
+            continue
+        filenames = message.get("filenames")
+        if not isinstance(filenames, list):
+            continue
+        for value in filenames:
+            if not isinstance(value, str):
+                continue
+            path = Path(value)
+            if path.name == filename:
+                libraries.add(_owned_file(
+                    path if path.is_absolute() else destination / path, target_directory))
+    if finished != [True] or len(libraries) != 1:
+        raise RuntimeError(f"cargo did not report one successful owned native library; see {destination / 'build.log'}")
+    return libraries.pop()
+
+
+def _invalidate_build(destination: Path) -> None:
+    for name in ("manifest.json", "morphproof-build.json", "build.log"):
+        if (destination / name).is_symlink():
+            raise RuntimeError("build metadata must not be a symlink")
+    for name in ("morphproof-build.json", "manifest.json"):
+        path = destination / name
+        if path.exists():
+            document = json.loads(path.read_text(encoding="utf-8"))
+            if not isinstance(document, dict):
+                raise RuntimeError("build metadata must be a JSON object")
+        elif name == "morphproof-build.json":
+            document = {"schema": 1, "artifacts": []}
+        else:
+            continue
+        document["built"] = False
+        if name == "manifest.json":
+            for key in ("native", "native_sha256", "build_seconds", "cargo_version", "rustc_version"):
+                document.pop(key, None)
+        path.write_text(json.dumps(document, indent=2) + "\n", encoding="utf-8")
+
+
+@contextmanager
+def _build_lock(destination: Path):
+    """Serialize cooperating builds; the persistent file is never unlinked."""
+    path = destination / ".morphproof-build.lock"
+    if path.is_symlink():
+        raise RuntimeError("build lock must not be a symlink")
+    flags = os.O_RDWR | os.O_CREAT | getattr(os, "O_NOFOLLOW", 0)
+    try:
+        fd = os.open(path, flags, 0o600)
+    except OSError as exc:
+        raise RuntimeError("cannot open the candidate build lock") from exc
+    try:
+        if not stat.S_ISREG(os.fstat(fd).st_mode):
+            raise RuntimeError("build lock must be a regular file")
+        if os.name == "posix":
+            import fcntl
+            try:
+                fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                raise RuntimeError("another build is already running for this candidate") from None
+        elif os.name == "nt":
+            import msvcrt
+            if os.fstat(fd).st_size == 0:
+                os.write(fd, b"\0")
+            os.lseek(fd, 0, os.SEEK_SET)
+            try:
+                msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+            except OSError:
+                raise RuntimeError("another build is already running for this candidate") from None
+        else:
+            raise RuntimeError("this platform cannot safely lock candidate builds")
+        yield
+    finally:
+        os.close(fd)
+
+
 def build_candidate(destination: Path, timeout: float = 300.0) -> dict:
     """Build an already generated crate and expose it as candidate.py."""
     destination = Path(destination).resolve()
+    with _build_lock(destination):
+        return _build_candidate_locked(destination, timeout)
+
+
+def _build_candidate_locked(destination: Path, timeout: float) -> dict:
+    _invalidate_build(destination)
+    target_directory = _target_directory(destination)
     cargo = shutil.which("cargo")
     if cargo is None:
         raise RuntimeError("Rust cargo is required. Install the free Rust toolchain from https://rustup.rs/ and put cargo on PATH.")
     start = time.perf_counter()
-    input_names = ["src/lib.rs", "Cargo.toml", "build.rs", "candidate.py", "pyproject.toml"]
+    input_names = ["src/lib.rs", "Cargo.toml", "build.rs", "candidate.py", "pyproject.toml",
+                   "reference.py", "contract.json"]
     input_names.extend(str(path.relative_to(destination)) for path in (destination / "python").glob("*/__init__.py"))
-    build_inputs = {name: _digest((destination / name).read_bytes()) for name in input_names}
+    build_inputs = {name: _digest(_owned_file(destination / name, destination).read_bytes())
+                    for name in input_names}
     env = dict(os.environ)
     env["PYO3_PYTHON"] = sys.executable
+    # Metadata resolves a missing or stale lock like an ordinary Cargo build,
+    # while preserving existing compatible versions. --no-deps does not create
+    # a lockfile. Keep its target directory inside the candidate as well.
+    env["CARGO_TARGET_DIR"] = str(target_directory)
+    lock_path = destination / "Cargo.lock"
+    if lock_path.is_symlink():
+        raise RuntimeError("Cargo.lock must not be a symlink")
+    if lock_path.exists():
+        _owned_file(lock_path, destination)
+    deadline = start + timeout
+    log = destination / "build.log"
+    def unchanged():
+        try:
+            return all(_digest(_owned_file(destination / name, destination).read_bytes()) == digest
+                       for name, digest in build_inputs.items())
+        except (OSError, RuntimeError):
+            return False
+    def remaining(command):
+        left = deadline - time.perf_counter()
+        if left <= 0:
+            raise subprocess.TimeoutExpired(command, timeout)
+        return left
+    resolution_command = [cargo, "metadata", "--format-version=1", "--manifest-path", str(destination / "Cargo.toml")]
+    build_command = [cargo, "build", "--locked", "--release", "--manifest-path", str(destination / "Cargo.toml"),
+                     "--target-dir", str(target_directory), "--message-format=json-render-diagnostics"]
     try:
-        result = subprocess.run([cargo, "build", "--release", "--manifest-path", str(destination / "Cargo.toml")], cwd=destination, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
+        resolution = subprocess.run(resolution_command, cwd=destination, env=env, text=True,
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                    timeout=remaining(resolution_command))
+        resolution_log = resolution.stderr or ""
+        if resolution.returncode:
+            log.write_text(resolution_log or resolution.stdout or "Cargo metadata failed", encoding="utf-8")
+            raise RuntimeError(f"Cargo dependency resolution failed; see {log}")
+        if not unchanged():
+            raise RuntimeError("candidate source or build configuration changed during dependency resolution; rebuild from stable inputs")
+        # This is the lock the forthcoming --locked build is required to use,
+        # not a hash of whatever happens to be at the path after compilation.
+        build_inputs["Cargo.lock"] = _digest(_owned_file(lock_path, destination).read_bytes())
+        result = subprocess.run(build_command, cwd=destination, env=env, text=True,
+                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                timeout=remaining(build_command))
     except subprocess.TimeoutExpired as exc:
         captured = exc.stdout or b""
-        (destination / "build.log").write_text(captured.decode(errors="replace") if isinstance(captured, bytes) else captured, encoding="utf-8")
-        raise RuntimeError(f"Rust build timed out after {timeout}s; see {destination / 'build.log'}") from exc
-    (destination / "build.log").write_text(result.stdout, encoding="utf-8")
+        log.write_text(captured.decode(errors="replace") if isinstance(captured, bytes) else captured, encoding="utf-8")
+        raise RuntimeError(f"Rust build timed out after {timeout}s; see {log}") from exc
+    log.write_text(resolution_log + result.stdout, encoding="utf-8")
     if result.returncode:
-        raise RuntimeError(f"Rust build failed; see {destination / 'build.log'}")
-    if any(_digest((destination / name).read_bytes()) != digest for name, digest in build_inputs.items()):
+        raise RuntimeError(f"Rust build failed; see {log}")
+    if not unchanged():
         raise RuntimeError("candidate source or build configuration changed during compilation; rebuild from stable inputs")
-    native_name = "_morphproof_native" + (sysconfig.get_config_var("EXT_SUFFIX") or ".so")
-    suffix = ".dylib" if sys.platform == "darwin" else ".dll" if sys.platform == "win32" else ".so"
-    library = destination / "target" / "release" / (("" if sys.platform == "win32" else "lib") + "_morphproof_native" + suffix)
-    if not library.is_file():
-        raise RuntimeError(f"cargo completed without the expected native library: {library}")
-    native = destination / native_name
-    shutil.copy2(library, native)
-    result = {"candidate": str(destination / "candidate.py"), "native": str(native), "build_seconds": time.perf_counter() - start, "native_sha256": _digest(native.read_bytes()), "rust_sha256": _digest((destination / "src" / "lib.rs").read_bytes()), "built": True}
-    artifacts = [native.name, *input_names, "Cargo.lock"]
-    (destination / "morphproof-build.json").write_text(json.dumps({"schema": 1, "artifacts": artifacts}, indent=2) + "\n", encoding="utf-8")
-    result["python"] = sys.version
-    result["platform"] = platform.platform()
+    versions = {}
     for key, executable in (("cargo_version", cargo), ("rustc_version", shutil.which("rustc"))):
         try:
-            result[key] = subprocess.check_output([executable, "--version"], text=True, env=env).strip() if executable else "unavailable"
+            versions[key] = subprocess.check_output([executable, "--version"], text=True, env=env).strip() if executable else "unavailable"
         except (OSError, subprocess.CalledProcessError):
-            result[key] = "unavailable"
+            versions[key] = "unavailable"
+    if not unchanged():
+        raise RuntimeError("candidate source or build configuration changed during compilation; rebuild from stable inputs")
+    native_name = "_morphproof_native" + (sysconfig.get_config_var("EXT_SUFFIX") or ".so")
+    library = _native_library(destination, result.stdout)
+    native = destination / native_name
+    if native.is_symlink():
+        raise RuntimeError("native delivery must not replace a symlink")
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=destination, prefix=".morphproof-native-", delete=False) as stream:
+            temporary = Path(stream.name)
+        shutil.copy2(library, temporary)
+        native_hash = _digest(temporary.read_bytes())
+        if not unchanged():
+            raise RuntimeError("candidate source or build configuration changed during compilation; rebuild from stable inputs")
+        temporary.replace(native)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+    result = {"candidate": str(destination / "candidate.py"), "native": str(native), "build_seconds": time.perf_counter() - start, "native_sha256": native_hash, "rust_sha256": build_inputs["src/lib.rs"], "built": True}
+    artifacts = [native.name, *input_names, "Cargo.lock"]
+    hashes = {**build_inputs, native.name: native_hash}
+    result["python"] = sys.version
+    result["platform"] = platform.platform()
+    result.update(versions)
     manifest_path = destination / "manifest.json"
     if manifest_path.is_file():
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         manifest.update(result)
         manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    if not unchanged():
+        _invalidate_build(destination)
+        raise RuntimeError("candidate source or build configuration changed during publication; rebuild from stable inputs")
+    (destination / "morphproof-build.json").write_text(json.dumps(
+        {"schema": 1, "built": True, "artifacts": artifacts, "sha256": hashes},
+        indent=2) + "\n", encoding="utf-8")
+    if not unchanged():
+        _invalidate_build(destination)
+        raise RuntimeError("candidate source or build configuration changed during publication; rebuild from stable inputs")
     return result
 
 
@@ -391,7 +583,7 @@ _spec = _util.spec_from_file_location("_morphproof_native", _path)
     manifest = {"schema": 1, "kind": "bounded-ast-to-rust", "reference": str(reference), "reference_sha256": _digest(source_bytes), "contract_sha256": _digest(contract_bytes), "rust_sha256": _digest(rust.encode()), "candidate": str(destination / "candidate.py"), "source": str(destination / "src" / "lib.rs"), "limitations": _LIMITS, "package_import": package_import, "distribution": distribution, "built": False}
     (destination / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     if build:
+        # build_candidate publishes its manifest while holding the build lock.
+        # Rewriting it here could overwrite a later build's invalidation.
         manifest.update(build_candidate(destination))
-        manifest["built"] = True
-        (destination / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     return manifest

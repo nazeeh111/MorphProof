@@ -42,6 +42,14 @@ open-source crates; later cached builds can run offline. Verification and Studio
 have **no third-party runtime dependencies** and need neither Rust nor a model.
 This is an alpha release with an explicit, intentionally narrow contract.
 
+Native builds resolve and record Cargo.lock before a locked compilation, use an
+owned Cargo target directory, and select the root library reported by Cargo. Builds targeting the same candidate are mutually exclusive;
+wait for the active build to finish before retrying. A failed rebuild preserves
+the previous native file but marks its build receipt incomplete, so it cannot
+be presented as newly verified. Changing generated inputs during compilation
+causes a refusal. These checks assume cooperating local writers; they are not a
+sandbox or a defense against hostile filesystem replacement.
+
 ## What is supported
 
 - Pure, deterministic functions with one `list[float]` parameter and a float result.

@@ -95,6 +95,8 @@ _PAGE = r'''<!doctype html>
 @media(max-width:850px){.app{grid-template-columns:1fr}.rail{position:static;height:auto;padding:17px 22px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:15px}.rail nav,.rail-note,.rail-foot,.studio-label{display:none}.workspace{padding:0 22px 30px}.topbar{height:64px}.hero{padding-top:25px;gap:15px}.hero-right{max-width:180px}.status{font-size:9px}.metric-grid{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}.comparison{grid-template-columns:minmax(0,1fr)}.bottom-grid{grid-template-columns:1fr}.claims{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.code-wrap{min-height:220px}.flow-step{min-width:150px}.section-caption{font-size:9px}.code-lines{font-size:11px}}
 @media(max-width:520px){.workspace{padding:0 15px 25px}.local{display:none}.topbar{height:58px}.hero{display:block}.hero-right{text-align:left;max-width:none;padding-top:17px;display:flex;align-items:center;gap:15px}.run-id{margin:0}h1{font-size:31px}.intro{font-size:12px}.metric-number{font-size:28px}.metric-detail{font-size:9px}.section-title{gap:10px}.section-title h2{font-size:14px}.section-caption{display:none}.claims{display:block}.controls{justify-content:flex-start}.control{display:grid;gap:4px}select{max-width:160px}.input-grid,.observations{grid-template-columns:1fr}.case-tag{font-size:8px}.case summary{gap:8px;padding:12px}.case-body{padding:0 12px 12px}.footer{display:block}.footer span:last-child{display:block;margin-top:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{.rail,.top-actions,.controls,.tabs{display:none}.app{display:block}.workspace{padding:0}.code-wrap{max-height:none}.case-body{display:block}.comparison{grid-template-columns:minmax(0,1fr)}.hero{padding-top:20px}.footer{break-inside:avoid}body{background:#fff}}
+.metric-detail,.flow-step .step-meta,.tab,.code-foot,.code-lines,.control,.field-label,.claim-top{font-size:12px}
+@media(max-width:700px){.workbench-head .controls{display:grid;grid-template-columns:1fr;width:100%}.workbench-head .control{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center}.workbench-head .control select{width:100%;min-width:0;max-width:100%}.panel-head:has(.tabs){flex-wrap:wrap}}
 </style></head><body>
 <div class="app"><aside class="rail"><div><div class="brand"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M1 1h12v12H1zM19 19h12v12H19z" fill="#e56438"/><path d="M19 1h12L13 31H1z" fill="#edf0e4"/></svg>MORPHPROOF</div><div class="studio-label">STUDIO / 01</div></div><div class="rail-note">WORKSPACE</div><nav aria-label="Report sections"><a href="#overview"><span class="nav-num">01</span>Overview</a><a href="#workbench"><span class="nav-num">02</span>Contract inspector</a><a href="#counterexamples"><span class="nav-num">03</span>Counterexamples</a><a href="#reproduce"><span class="nav-num">04</span>Provenance</a></nav><div class="rail-foot"><b>Change the implementation.</b>Preserve the contract.<br>Prove what was tested.<br><br>LOCAL EVIDENCE BROWSER<br>NO CLOUD REQUIRED</div></aside>
 <main class="workspace" id="overview"><header class="topbar"><div class="crumb">MORPHPROOF <span>/ Behavioral evidence</span></div><div class="top-actions"><span class="local">Local report</span><button class="export" id="export">↓ Export JSON</button></div></header>
@@ -120,7 +122,32 @@ const statusClass=s=>s==='incompatible'?'fail':s==='compatible'?'':'error';
 attempts.forEach((a,i)=>{const o=node('option','',a.label||'Attempt '+(i+1));o.value=i;$('attempt').append(o);});$('attempt').value=attempts.length-1;
 function fillFunctions(){const selected=$('function').value;$('function').replaceChildren();const all=node('option','','All functions');all.value='';$('function').append(all);for(const f of report.functions||[]){const o=node('option','',f.name);o.value=f.name;$('function').append(o);}if([...$('function').options].some(o=>o.value===selected))$('function').value=selected;}
 function chosen(){return (report.functions||[]).filter(f=>!$('function').value||f.name===$('function').value);}
-function source(){const attempt=attempts[Number($('attempt').value)]||{},s=attempt[activeCode]??meta[activeCode];$('code').replaceChildren();if(typeof s==='string'&&s.length){const pre=node('pre','code-lines');for(const line of s.split('\n'))pre.append(node('span','code-line',line||' '));$('code').append(pre);}else $('code').append(node('div','code-empty',activeCode==='reference_source'?'Reference source was not attached to this run. Inspect its SHA-256 below.':'Rust source was not attached to this run. Inspect the generated project separately.'));$('code-label').textContent=activeCode==='reference_source'?'Frozen Python reference':'Generated Rust source';const hash=(attempt._source_hashes||{})[activeCode]||(meta._source_hashes||{})[activeCode]||'';$('code-hash').textContent=hash?hash.slice(0,12):'';}
+function source(){
+  const index=Number($('attempt').value), attempt=attempts[index]||{};
+  const provenance=report.provenance||{};
+  const recorded=activeCode==='reference_source'?provenance.reference_sha256:provenance.artifact_sha256?.['src/lib.rs'];
+  const sharedHash=meta._source_hashes?.[activeCode];
+  const localAttachment=typeof attempt[activeCode]==='string';
+  const sharedAllowed=recorded?sharedHash===recorded:index===attempts.length-1;
+  const owner=localAttachment?attempt:sharedAllowed?meta:null;
+  const text=owner?.[activeCode], digest=owner?._source_hashes?.[activeCode];
+  const mismatch=typeof text==='string'&&recorded&&digest!==recorded;
+  const code=$('code');
+  code.replaceChildren();
+  if(typeof text==='string'&&text.length&&!mismatch){
+    const pre=node('pre','code-lines');
+    for(const line of text.split('\n'))pre.append(node('span','code-line',line||' '));
+    code.append(pre);
+  }else{
+    const kind=activeCode==='reference_source'?'Python reference':'Rust source';
+    const message=mismatch?kind+' attachment does not match this attempt’s recorded digest.':kind+' was not attached to this attempt.';
+    code.append(node('div','code-empty',message));
+  }
+  $('code-label').textContent=activeCode==='reference_source'?'Frozen Python reference':'Generated Rust source';
+  const identity=recorded||digest||'';
+  $('code-hash').textContent=identity.slice(0,12);
+  $('code-hash').title=identity?(recorded?'Recorded SHA-256: ':'Attachment SHA-256: ')+identity:'';
+}
 function claim(title,state,description){const c=node('div','claim'),top=node('div','claim-top');top.append(node('span','',title),node('span','pill '+(state==='failed'?'fail':state==='untested'?'unknown':''),state));c.append(top,node('div','claim-bottom',description));return c;}
 function renderClaims(){const functions=chosen(),tested=functions.reduce((n,f)=>n+(Number(f.tested)||0)+(Number(f.api_tested)||0),0),failures=functions.reduce((n,f)=>n+(Number(f.failures)||0)+(Number(f.api_failures)||0),0),c=$('claims');c.replaceChildren();for(const f of functions)c.append(claim(f.name,f.status==='compatible'?'tested':f.status==='incompatible'?'failed':'untested',num(f.tested)+' positional + '+num(f.api_tested||0)+' keyword checks · '+num((Number(f.failures)||0)+(Number(f.api_failures)||0))+' differences'));if(!functions.length)c.append(node('div','empty','No declared function results were recorded.'));for(const f of functions)for(const e of f.errors||[])c.append(claim(f.name+' execution','untested',pretty(e)));c.append(claim('Declared input domain',failures?'failed':tested?'tested':'untested',failures?'At least one behavior differs on tested inputs.':'Compatibility applies only to the sampled inputs.'));c.append(claim('Universal equivalence','untested','No formal proof is attached to this report.'));c.append(claim('Outside the contract','untested','Other types, APIs and side effects are not covered.'));}
 function field(label,value){const e=node('div');e.append(node('div','field-label',label),node('pre','sample',pretty(value)??'Not recorded'));return e;}
