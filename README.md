@@ -34,6 +34,8 @@ morphproof studio runs/native/evidence --serve
 
 Open the printed loopback URL. Choose a fresh output directory for each run. Exit `0` means compatible on sampled inputs, `1` means a mismatch or incomplete verification, and `2` means invalid input or a build failure.
 
+Native builds resolve the Cargo lockfile before locked compilation, use an owned target directory, and select the library reported by Cargo. Builds of the same candidate cannot run simultaneously. For caught build or publication failures, MorphProof attempts to preserve the previous native file and invalidates its build receipt; retry after correcting the failure. If native restoration fails, the error names the retained backup. Input changes during compilation cause a refusal. These checks assume cooperating local writers; they do not cover power loss or hostile filesystem changes.
+
 For a recorded example without compilation, extract the worked artifact and open `repaired/studio.html`. Its native replay requires macOS ARM64 and Python 3.12; the browser viewer is portable. The original native case used Rust 1.100.0, distinct from the repository's unchanged 1.99.1 pin.
 
 ## What is supported

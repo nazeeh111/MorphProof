@@ -127,10 +127,15 @@ def _artifact_hashes(candidate):
     if manifest.is_symlink():
         raise ValueError("build manifest must not be a symlink")
     data = json.loads(manifest.read_text())
+    if data.get("built", True) is not True:
+        raise ValueError("build receipt is not a successful build; rebuild the incomplete candidate")
     paths = data.get("artifacts")
     if not isinstance(paths, list) or not paths or len(paths) > 100:
         raise ValueError("build manifest artifacts must contain 1 to 100 relative paths")
     hashes = {"morphproof-build.json": _hash(manifest)}
+    expected = data.get("sha256")
+    if expected is not None and (not isinstance(expected, dict) or set(expected) != set(paths)):
+        raise ValueError("build receipt hash identities must match its artifacts")
     for value in paths:
         if not isinstance(value, str):
             raise ValueError("build artifact paths must be strings")
@@ -142,7 +147,10 @@ def _artifact_hashes(candidate):
             raise ValueError("build artifact paths must not contain symlinks")
         if not path.is_file() or not path.resolve().is_relative_to(root.resolve()):
             raise ValueError(f"build artifact is missing or outside the candidate directory: {value}")
-        hashes[relative.as_posix()] = _hash(path)
+        digest = _hash(path)
+        if expected is not None and expected[value] != digest:
+            raise ValueError(f"build artifact identity differs from successful build: {value}")
+        hashes[relative.as_posix()] = digest
     return hashes
 
 
