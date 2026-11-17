@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "objective": "Synthetic ordered sum of squares; seeded first-item omission then deterministic restoration",
+  "functions": [
+    {
+      "name": "energy",
+      "parameter": "values",
+      "input": "list[float]",
+      "output": "float",
+      "max_length": 32,
+      "rtol": 0.0,
+      "atol": 0.0
+    }
+  ]
+}

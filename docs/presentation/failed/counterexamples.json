@@ -1,0 +1,168 @@
+[
+  {
+    "function": "energy",
+    "case_index": 3,
+    "family": "singleton",
+    "input": [
+      1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    },
+    "minimized_input": [
+      1.0
+    ],
+    "minimization_calls": 3,
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "energy",
+    "case_index": 5,
+    "family": "sign",
+    "input": [
+      1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 2.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_input": [
+      1.0
+    ],
+    "minimization_calls": 5,
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "energy",
+    "case_index": 6,
+    "family": "cancellation",
+    "input": [
+      1e+16,
+      1.0,
+      -1e+16
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 2e+32
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1e+32
+    },
+    "minimized_input": [
+      1.0
+    ],
+    "minimization_calls": 5,
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "energy",
+    "case_index": 10,
+    "family": "repeated",
+    "input": [
+      2.0,
+      2.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 8.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 4.0
+    },
+    "minimized_input": [
+      1.0
+    ],
+    "minimization_calls": 5,
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 0.0
+    }
+  },
+  {
+    "function": "energy",
+    "family": "keyword-api",
+    "keyword": "values",
+    "input": [
+      1.0,
+      -1.0
+    ],
+    "minimized_input": [
+      1.0,
+      -1.0
+    ],
+    "reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 2.0
+    },
+    "candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimized_reference": {
+      "kind": "return",
+      "type": "float",
+      "value": 2.0
+    },
+    "minimized_candidate": {
+      "kind": "return",
+      "type": "float",
+      "value": 1.0
+    },
+    "minimization_calls": 0
+  }
+]

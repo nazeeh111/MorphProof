@@ -15,7 +15,14 @@ passed, what failed, and what remains untested.
 [Technical report](docs/technical-report.md) · [Research](docs/research.md) ·
 [Agent integrations](docs/integrations.md)
 
-![Studio displaying the actual repaired native run](docs/studio.png)
+<picture>
+  <source media="(max-width: 600px)" srcset="docs/presentation/witness-mobile.png">
+  <img src="docs/presentation/witness.png" alt="A real synthetic Python-to-Rust sum-of-squares transformation with a disclosed skipped-first-item defect. The verifier reduces two values to one: Python returns 1.0 while native Rust returns 0.0. Restoring the loop passes 64 positional and 3 keyword checks; universal equivalence remains untested.">
+</picture>
+
+**A small input can expose a large contract break.** This newly executed one-function case preserves the exact faulty and restored native artifacts, then installs and calls the generated wheel in a fresh environment. The restoration is deterministic, not autonomous. [Reopen the complete worked artifact](docs/presentation/worked-example.zip) · [Inspect the source, witness and toolchain limits](docs/presentation/README.md).
+
+The local case used Rust 1.100.0; the repository's 1.99.1 pin was not exercised. [Earlier repaired Studio capture](docs/studio.png) and the historical three-function demonstration below remain separate.
 
 ## A small, complete workflow
 
