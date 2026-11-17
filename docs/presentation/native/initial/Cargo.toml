@@ -1,0 +1,14 @@
+[package]
+name = "morphproof-candidate"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "_morphproof_native"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "=0.27.2", features = ["extension-module", "abi3-py310"] }
+
+[build-dependencies]
+pyo3-build-config = "=0.27.2"

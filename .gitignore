@@ -13,3 +13,6 @@ runs/
 *.dll
 *.partial.json
 .hypothesis/
+
+# Known-source native snapshots for this public synthetic worked example.
+!docs/presentation/native/**/*.so

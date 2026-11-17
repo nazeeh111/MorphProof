@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "artifacts": [
+    "_morphproof_native.cpython-312-darwin.so",
+    "src/lib.rs",
+    "Cargo.toml",
+    "build.rs",
+    "candidate.py",
+    "pyproject.toml",
+    "python/kernel/__init__.py",
+    "Cargo.lock"
+  ]
+}

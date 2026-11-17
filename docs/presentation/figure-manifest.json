@@ -1,0 +1,21 @@
+{
+  "source_main": "80a0daaf3eec332642159971ac33b8c59e3d0eaf",
+  "source_tree": "7c3971b2da66d1b4ff060278d2998018f64d0c46",
+  "meaning": "Exact recorded code excerpts and selected input/output/counts, not a statistical chart. Disclosed seed and deterministic restoration. Actual Rust1.100.0 distinct from untested source pin1.99.1.",
+  "files": {
+    "figure.py": "f7fc7719b309866df24e4623f2384de55e52810ceb374705192e9a70c93deaae",
+    "witness.svg": "89ee2c16bbf398af2abcd47338cbb50c8aea21fda83020135cc8a1510689bbc3",
+    "witness-mobile.svg": "db38459aa39c1defd9e6951b34e56d60e40940baf85b2be50790bcddae83e5fa",
+    "witness.png": "63c969478f0f1e569a1a0c53deba36a373392fcb9f3bdb0681e26a16152c16c0",
+    "witness-mobile.png": "f339807f10847d8c3085cbc361d546a1673320f0f7dfad1ab09e1a846cbefdd0",
+    "initial.rs": "6a2d255897f70315f20c165110db7959bf7f8f0c1ef066cb23a436d4ab27c93b",
+    "repaired.rs": "a11abe020cb38c76ed3ce94cfe4a10abed0bb20445b047b062978e50f390719d",
+    "kernel.py": "e987df9e24f63224309afd2976b60f6bfcf34ae37635c4b88720893235cd6278",
+    "contract.json": "41c1b409b810ede4bdff5ad5c0a2d1fb28089d0ae48a68712683f37d8612df5f",
+    "failed/report.json": "71070b5aebbaa9054e3c9652fbfa5214959ed1847d48a70724eb5c6e9f907b3c",
+    "failed/counterexamples.json": "504df7c921802346aab799ec1e4b6fd0ad8307228f6cce4c86caacaa8b290944",
+    "repaired/report.json": "fbb8e3f673896b7e4e380233f26883b7bec3290b76b0edc58dcb35799cbc323d",
+    "repaired/run.json": "db0cd1f8055943cbd30f92666c3d5526ad7f343e55df5da135b051ff5f5b0ae3",
+    "worked-example.zip": "3b46306bbaa12bc0b907235381895d355506b9122b7b914af3da0a237abe87ae"
+  }
+}

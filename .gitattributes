@@ -6,3 +6,8 @@ experiments/upstream/** -text
 experiments/selector-v1.py -text
 examples/demo/failed/** -text
 examples/demo/repaired/** -text
+
+# Preserve exact worked-artifact records and source-derived vectors.
+docs/presentation/*.json -text
+docs/presentation/**/*.json -text
+docs/presentation/*.svg -text
