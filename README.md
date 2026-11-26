@@ -1,22 +1,15 @@
-<p align="left"><img src="assets/brand.svg" alt="MORPHPROOF" width="500"></p>
+# MorphProof
 
-# Change the implementation. Preserve the contract.
+A deliberately seeded Rust loop skips its first item. On the recorded input `[1.0]`, Python returns **1.0** and the Rust candidate returns **0.0**. Restoring the generated loop passes 64 fresh positional comparisons and 3 keyword checks. Those finite checks leave other inputs untested.
 
-**Compile supported numerical Python to Rust. Keep the behavioral evidence.**
+[Inspect the recorded case](docs/presentation/README.md) · [Download the complete worked-example ZIP](https://raw.githubusercontent.com/nazeeh111/MorphProof/131f4aee72c32653d849a8f6c2462a522fa86537/docs/presentation/worked-example.zip) · [Run the workflow](#a-small-complete-workflow)
 
-MorphProof builds a Rust-backed Python package, challenges reference and candidate in separate processes, and reduces disagreements to small, replayable counterexamples. Its portable Studio shows the source, tested inputs, observed differences and claims that remain untested.
-
-[![Tests](https://github.com/nazeeh111/MorphProof/actions/workflows/ci.yml/badge.svg)](https://github.com/nazeeh111/MorphProof/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-236f61)](LICENSE)
+MorphProof compiles supported numerical Python to Rust and compares the reference and candidate in separate processes. Studio opens the recorded disagreement when one is available and lets you select the restored attempt, inspect the source and export either report. The recorded repair restored the generated source deterministically.
 
 <picture>
-  <source media="(max-width: 600px)" srcset="docs/presentation/witness-mobile.png">
-  <img src="docs/presentation/witness.png" alt="Recorded synthetic witness: a disclosed Rust loop omission returns 0.0 for [1.0], while Python returns 1.0. Restoring the loop passes the recorded finite checks; universal equivalence remains untested.">
+  <source media="(max-width: 600px)" srcset="docs/current-studio/witness-390.png">
+  <img src="docs/current-studio/witness-1280.png" alt="The current MorphProof Studio opens the seeded omission with input [1.0], Python reference 1.0, candidate 0.0, and buttons for the failure and restored attempts.">
 </picture>
-
-In this recorded one-function case, a deliberately faulty Rust loop skips the first item. `[1.0]` exposes the difference: Python returns **1.0**, Rust **0.0**. Restoring the generated loop passes 64 fresh positional comparisons and 3 keyword checks. The restoration is deterministic, not autonomous.
-
-[Inspect the complete case and limits](docs/presentation/README.md) · [Download the worked artifact](docs/presentation/worked-example.zip)
 
 ## A small, complete workflow
 
@@ -36,7 +29,7 @@ Open the printed loopback URL. Choose a fresh output directory for each run. Exi
 
 Native builds resolve the Cargo lockfile before locked compilation, use an owned target directory, and select the library reported by Cargo. Builds of the same candidate cannot run simultaneously. For caught build or publication failures, MorphProof attempts to preserve the previous native file and invalidates its build receipt; retry after correcting the failure. If native restoration fails, the error names the retained backup. Input changes during compilation cause a refusal. These checks assume cooperating local writers; they do not cover power loss or hostile filesystem changes.
 
-For a recorded example without compilation, extract the worked artifact and open `repaired/studio.html`. Its native replay requires macOS ARM64 and Python 3.12; the browser viewer is portable. The original native case used Rust 1.100.0, distinct from the repository's unchanged 1.99.1 pin.
+For a recorded example without compilation, extract the worked artifact and open `repaired/studio.html`. Its native replay requires macOS ARM64 and Python 3.12. The archived browser viewer is portable. To render the same reports with the current Studio, run `morphproof studio repaired` from the extracted directory. The original native case used Rust 1.100.0, distinct from the repository's unchanged 1.99.1 pin.
 
 ## What is supported
 
@@ -65,7 +58,7 @@ python -m pip install -e '.[test]'
 python -m pytest -q
 ```
 
-The current local suite passes 37 tests and 12 subtests. Studio's repaired section navigation, keyboard tabs, report download and responsive views were exercised in Chromium, Firefox and WebKit. [Verification and limits](docs/current-studio/VERIFICATION.md) distinguish current checks, recorded native replay and fresh native compilation.
+Studio supports keyboard attempt selection, source tabs and report downloads. [Current failure and restored captures](docs/current-studio/CAPTURES.md) come from the original recorded reports. [Verification and limits](docs/current-studio/VERIFICATION.md) distinguish current checks, recorded native replay and fresh native compilation.
 
 <a id="the-actual-demonstration"></a>
 <a id="adaptive-testing-measured-experimental"></a>
