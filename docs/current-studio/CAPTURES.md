@@ -1,6 +1,6 @@
 # Actual Studio captures
 
-These unedited browser captures show the current Studio renderer with the preserved synthetic one-function evidence from `docs/presentation`. They were taken on November 17, 2026 in a fresh-profile headless Chrome session restricted to localhost. They contain no personal code, accounts or user profile.
+These November 17 captures show the earlier Studio renderer with the preserved synthetic one-function evidence from `docs/presentation`. They were taken on November 17, 2026 in a fresh-profile headless Chrome session restricted to localhost. They contain no personal code, accounts or user profile.
 
 | Capture | Actual state |
 | --- | --- |
@@ -10,3 +10,17 @@ These unedited browser captures show the current Studio renderer with the preser
 The renderer was regenerated for the interface check. The historical reports, original native binaries, worked-example ZIP and their hash manifests remain unchanged. The diagram and native compilation records in `docs/presentation` are separate artifacts, with their own provenance.
 
 [Verification and limits](VERIFICATION.md) · [Recorded native case](../presentation/README.md)
+
+## Witness-first Studio
+
+These unedited captures use the same archived reports with the current renderer.
+The initial view selects the latest attempt with a complete recorded positional
+disagreement. **Inspect this counterexample** focuses its details. The restored
+attempt remains selectable and shows its 64 positional and 3 keyword checks.
+
+- [Initial failure, desktop](witness-1280.png)
+- [Initial failure, phone viewport](witness-390.png)
+- [Restored attempt, desktop](restored-1280.png)
+
+The archived native code and ZIP remain separate. These captures show replayed
+observations and recorded counts. No new hypotheses or universal claims follow.
